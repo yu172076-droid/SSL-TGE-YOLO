@@ -1,0 +1,14 @@
+row,cell_1,cell_2,cell_3,cell_4,cell_5,cell_6
+1,\multicolumn{6}{l}{(a) Retained images after duplicate and annotation checks},,,,,
+2,Partition,Source/date,Retained,Training,Validation,Test
+3,Mixed internal,Snapper,436,358,47,31
+4,,Goldfish,1050,830,102,118
+5,,Total,1486,1188,149,149
+6,Whole-date snapper,1 and 5 February 2019,216,216,0,0
+7,,11 February 2019,146,0,146,0
+8,,23 February 2019,74,0,0,74
+9,\multicolumn{6}{l}{(b) Fixed manual-label subsets},,,,,
+10,\multicolumn{2}{l}{Subset},Training pool,Share (\%),Snapper,Goldfish,
+11,\multicolumn{2}{l}{Internal: 80 images},1188,6.73,19,61,
+12,\multicolumn{2}{l}{Internal: 144 images},1188,12.12,40,104,
+13,\multicolumn{2}{l}{Whole-date: 80 images},216,37.04,80,0,

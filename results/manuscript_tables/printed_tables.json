@@ -1,0 +1,1149 @@
+{
+  "source_tex_sha256": "6b6c939d99216f8cd4a71d78e48c8c22978c476edd943fecda3fc324096bb1d7",
+  "scope": "Printed manuscript cells, including LaTeX notation; not per-run observations or raw telemetry.",
+  "tables": [
+    {
+      "number": 1,
+      "page": 3,
+      "labels": [
+        "tab:data_design"
+      ],
+      "caption_latex": "Data partitions and manual training-label budgets.",
+      "table_block_latex": "\\begin{table*}[!tb]\n\\centering\\small\n\\caption{Data partitions and manual training-label budgets.}\n\\label{tab:data_design}\n\\setlength{\\tabcolsep}{5pt}\n\\begin{tabular}{@{}llrrrr@{}}\n\\toprule\n\\multicolumn{6}{l}{(a) Retained images after duplicate and annotation checks}\\\\\nPartition & Source/date & Retained & Training & Validation & Test\\\\\n\\midrule\nMixed internal & Snapper & 436 & 358 & 47 & 31\\\\\n & Goldfish & 1050 & 830 & 102 & 118\\\\\n & Total & 1486 & 1188 & 149 & 149\\\\\n\\midrule\nWhole-date snapper & 1 and 5 February 2019 & 216 & 216 & 0 & 0\\\\\n & 11 February 2019 & 146 & 0 & 146 & 0\\\\\n & 23 February 2019 & 74 & 0 & 0 & 74\\\\\n\\midrule\n\\multicolumn{6}{l}{(b) Fixed manual-label subsets}\\\\\n\\multicolumn{2}{l}{Subset} & Training pool & Share (\\%) & Snapper & Goldfish\\\\\n\\midrule\n\\multicolumn{2}{l}{Internal: 80 images} & 1188 & 6.73 & 19 & 61\\\\\n\\multicolumn{2}{l}{Internal: 144 images} & 1188 & 12.12 & 40 & 104\\\\\n\\multicolumn{2}{l}{Whole-date: 80 images} & 216 & 37.04 & 80 & 0\\\\\n\\bottomrule\n\\end{tabular}\n\\par\\smallskip\\begin{minipage}{0.98\\textwidth}\\footnotesize The raw pool contains 1779 images; 290 files in conflicting-annotation groups and three invalid-label images are excluded. Internal validation/test contain 261/263 boxes. Whole-date training/validation/test contain 222/207/182 boxes; its manual subset contains 82 boxes and selects 40 images per training date by hash ranking. Manual budgets exclude validation/test annotation. The internal and whole-date partitions overlap in source material.\\end{minipage}\n\\end{table*}",
+      "rows_latex": [
+        [
+          "\\multicolumn{6}{l}{(a) Retained images after duplicate and annotation checks}"
+        ],
+        [
+          "Partition",
+          "Source/date",
+          "Retained",
+          "Training",
+          "Validation",
+          "Test"
+        ],
+        [
+          "Mixed internal",
+          "Snapper",
+          "436",
+          "358",
+          "47",
+          "31"
+        ],
+        [
+          "",
+          "Goldfish",
+          "1050",
+          "830",
+          "102",
+          "118"
+        ],
+        [
+          "",
+          "Total",
+          "1486",
+          "1188",
+          "149",
+          "149"
+        ],
+        [
+          "Whole-date snapper",
+          "1 and 5 February 2019",
+          "216",
+          "216",
+          "0",
+          "0"
+        ],
+        [
+          "",
+          "11 February 2019",
+          "146",
+          "0",
+          "146",
+          "0"
+        ],
+        [
+          "",
+          "23 February 2019",
+          "74",
+          "0",
+          "0",
+          "74"
+        ],
+        [
+          "\\multicolumn{6}{l}{(b) Fixed manual-label subsets}"
+        ],
+        [
+          "\\multicolumn{2}{l}{Subset}",
+          "Training pool",
+          "Share (\\%)",
+          "Snapper",
+          "Goldfish"
+        ],
+        [
+          "\\multicolumn{2}{l}{Internal: 80 images}",
+          "1188",
+          "6.73",
+          "19",
+          "61"
+        ],
+        [
+          "\\multicolumn{2}{l}{Internal: 144 images}",
+          "1188",
+          "12.12",
+          "40",
+          "104"
+        ],
+        [
+          "\\multicolumn{2}{l}{Whole-date: 80 images}",
+          "216",
+          "37.04",
+          "80",
+          "0"
+        ]
+      ]
+    },
+    {
+      "number": 2,
+      "page": 6,
+      "labels": [
+        "tab:experiment_protocol"
+      ],
+      "caption_latex": "Common training, evaluation and device-study settings.",
+      "table_block_latex": "\\begin{table*}[!tb]\n\\centering\\small\n\\caption{Common training, evaluation and device-study settings.}\n\\label{tab:experiment_protocol}\n\\setlength{\\tabcolsep}{5pt}\n\\begin{tabularx}{\\textwidth}{@{}>{\\raggedright\\arraybackslash}p{0.20\\textwidth}>{\\raggedright\\arraybackslash}X@{}}\n\\toprule\nComponent & Setting\\\\\n\\midrule\nTraining & 300 epochs; seeds 101/202/303; FP32; $640\\times640$ input; teacher/student batch sizes 4/8.\\\\\nOptimizer & SGD; initial learning rate 0.01, final factor 0.01, momentum 0.937, weight decay $5\\times10^{-4}$; cosine scheduling.\\\\\nAugmentation & Mosaic/mixup probabilities 1.0/0.05; native framework losses, scaling and warm-up, including YOLOv7's minimum 1000 warm-up batches.\\\\\nDetector evaluation & Square letterboxing; FP32; confidence floor 0.001; NMS IoU 0.65; model maxDet 300 and COCO maxDets 100.\\\\\nJetson & One Orin Nano Super 8 GB; 15 W dynamic clocks; Ubuntu 20.04.6/L4T R35.6.4; native PyTorch FP16 or TensorRT 8.5.2.2.\\\\\nRaspberry Pi & One Pi~5 Model B 8 GB; Debian 13/aarch64; Python 3.13.5; ONNX Runtime 1.23.2 CPU FP32; four intra-op/one inter-op threads, spinning disabled, one OpenCV thread.\\\\\nDetector cost input & The same 1475-frame 3840$\\times$2160 file; batch 1, input 640, confidence 0.25, NMS IoU 0.65, maxDet 300. Jetson uses full-file passes; Pi uses the first 300 frames.\\\\\nTracking input & R04/R02: 750 frames each, 26/19 trajectories and 1188/1227 visible GT boxes. Quality includes all frames and empty GT/predictions; the cost workload concatenates both clips (1500 frames).\\\\\n\\bottomrule\n\\end{tabularx}\n\\par\\smallskip\\begin{minipage}{0.98\\textwidth}\\footnotesize Devices retain their measured desktop/background conditions, including a blank Firefox tab on Jetson. Model/backend pass counts and process/boot repetitions are specified with the corresponding results. The attention, detector-backend, tracking-cost and Pi-power studies are separate measurement series.\\end{minipage}\n\\end{table*}",
+      "rows_latex": [
+        [
+          "Component",
+          "Setting"
+        ],
+        [
+          "Training",
+          "300 epochs; seeds 101/202/303; FP32; $640\\times640$ input; teacher/student batch sizes 4/8."
+        ],
+        [
+          "Optimizer",
+          "SGD; initial learning rate 0.01, final factor 0.01, momentum 0.937, weight decay $5\\times10^{-4}$; cosine scheduling."
+        ],
+        [
+          "Augmentation",
+          "Mosaic/mixup probabilities 1.0/0.05; native framework losses, scaling and warm-up, including YOLOv7's minimum 1000 warm-up batches."
+        ],
+        [
+          "Detector evaluation",
+          "Square letterboxing; FP32; confidence floor 0.001; NMS IoU 0.65; model maxDet 300 and COCO maxDets 100."
+        ],
+        [
+          "Jetson",
+          "One Orin Nano Super 8 GB; 15 W dynamic clocks; Ubuntu 20.04.6/L4T R35.6.4; native PyTorch FP16 or TensorRT 8.5.2.2."
+        ],
+        [
+          "Raspberry Pi",
+          "One Pi~5 Model B 8 GB; Debian 13/aarch64; Python 3.13.5; ONNX Runtime 1.23.2 CPU FP32; four intra-op/one inter-op threads, spinning disabled, one OpenCV thread."
+        ],
+        [
+          "Detector cost input",
+          "The same 1475-frame 3840$\\times$2160 file; batch 1, input 640, confidence 0.25, NMS IoU 0.65, maxDet 300. Jetson uses full-file passes; Pi uses the first 300 frames."
+        ],
+        [
+          "Tracking input",
+          "R04/R02: 750 frames each, 26/19 trajectories and 1188/1227 visible GT boxes. Quality includes all frames and empty GT/predictions; the cost workload concatenates both clips (1500 frames)."
+        ]
+      ]
+    },
+    {
+      "number": 3,
+      "page": 6,
+      "labels": [
+        "tab:metric_protocol"
+      ],
+      "caption_latex": "Evaluation measures and reporting scopes.",
+      "table_block_latex": "\\begin{table*}[!tb]\n\\centering\\small\n\\caption{Evaluation measures and reporting scopes.}\n\\label{tab:metric_protocol}\n\\setlength{\\tabcolsep}{5pt}\n\\begin{tabularx}{\\textwidth}{@{}>{\\raggedright\\arraybackslash}p{0.20\\textwidth}>{\\raggedright\\arraybackslash}X@{}}\n\\toprule\nMeasure & Convention\\\\\n\\midrule\nDetection & Single-class COCO AP50 and AP50:95, using the 101-point recall grid and IoU 0.50:0.05:0.95; COCO maxDets 100.\\\\\nTracking & TrackEval CLEAR/Identity at IoU 0.5: MOTA, MOTP, IDF1, ID switches, FP, FN and fragments. MOTP is mean matched-box IoU. Combined scores use the official sequence combiners.\\\\\nThroughput & Frames divided by wall time, from file open/decode through preprocessing, forward, NMS, CPU detections, prescribed logging and termination/flushing; full EOF on Jetson, 300-frame termination on Pi.\\\\\nMemory/forward & Sampled formal-window RSS and lifetime VmHWM have overlapping scopes and are not summed. CUDA forward timing excludes decoding and postprocessing.\\\\\nJetson power & Mean module VDD\\_IN over the same timing window, including background activity; excludes wall-plug and isolated-GPU interpretations.\\\\\nPi power & Separately measured, uncalibrated PMIC output rails; VDD\\_CORE load-minus-baseline increments are formed within run. Direct 5V/USB loads are outside this rail measurement.\\\\\n\\bottomrule\n\\end{tabularx}\n\\end{table*}",
+      "rows_latex": [
+        [
+          "Measure",
+          "Convention"
+        ],
+        [
+          "Detection",
+          "Single-class COCO AP50 and AP50:95, using the 101-point recall grid and IoU 0.50:0.05:0.95; COCO maxDets 100."
+        ],
+        [
+          "Tracking",
+          "TrackEval CLEAR/Identity at IoU 0.5: MOTA, MOTP, IDF1, ID switches, FP, FN and fragments. MOTP is mean matched-box IoU. Combined scores use the official sequence combiners."
+        ],
+        [
+          "Throughput",
+          "Frames divided by wall time, from file open/decode through preprocessing, forward, NMS, CPU detections, prescribed logging and termination/flushing; full EOF on Jetson, 300-frame termination on Pi."
+        ],
+        [
+          "Memory/forward",
+          "Sampled formal-window RSS and lifetime VmHWM have overlapping scopes and are not summed. CUDA forward timing excludes decoding and postprocessing."
+        ],
+        [
+          "Jetson power",
+          "Mean module VDD\\_IN over the same timing window, including background activity; excludes wall-plug and isolated-GPU interpretations."
+        ],
+        [
+          "Pi power",
+          "Separately measured, uncalibrated PMIC output rails; VDD\\_CORE load-minus-baseline increments are formed within run. Direct 5V/USB loads are outside this rail measurement."
+        ]
+      ]
+    },
+    {
+      "number": 4,
+      "page": 7,
+      "labels": [
+        "Table_1",
+        "tab:ghost_coverage80",
+        "tab:eca_position80"
+      ],
+      "caption_latex": "Compact80 SSL architecture controls: (a) Ghost stage coverage with P4 ECA fixed; (b) ECA placement with full Ghost coverage.",
+      "table_block_latex": "\\begin{table*}[!tb]\n\\centering\\small\n\\caption{Compact80 SSL architecture controls: (a) Ghost stage coverage with P4 ECA fixed; (b) ECA placement with full Ghost coverage.}\n\\label{Table_1}\\label{tab:ghost_coverage80}\\label{tab:eca_position80}\n\\setlength{\\tabcolsep}{3pt}\n\\begin{tabular}{@{}llrcccc@{}}\n\\toprule\nCondition & Ghost stages & \\makecell{Total\\\\parameters} & \\makecell{Val\\\\AP50} & \\makecell{Val\\\\AP50:95} & \\makecell{Internal\\\\test AP50} & \\makecell{Internal\\\\test AP50:95}\\\\\n\\midrule\n\\multicolumn{7}{l}{(a) Stage coverage; ECA at P4}\\\\\n0\\% (standard) & None & 8,758,703 & 89.21$\\pm$1.66 & 60.44$\\pm$1.79 & 87.75$\\pm$2.12 & 56.68$\\pm$2.12\\\\\n50\\% early & P2, P3 & 8,460,887 & 88.63$\\pm$2.26 & 60.56$\\pm$1.66 & 87.54$\\pm$2.56 & 56.53$\\pm$1.56\\\\\n50\\% deep & P4, P5 & 5,256,623 & 89.30$\\pm$2.32 & 60.39$\\pm$1.19 & 87.54$\\pm$1.66 & 56.16$\\pm$1.53\\\\\n100\\% reference & P2--P5 & 4,958,807 & 90.03$\\pm$1.95 & 61.01$\\pm$2.14 & 87.94$\\pm$1.99 & 56.51$\\pm$1.06\\\\\n\\midrule\n\\multicolumn{7}{l}{(b) ECA gate position; full Ghost stages}\\\\\nP3 & P2--P5 & 4,958,807 & 88.66$\\pm$1.95 & 60.49$\\pm$1.73 & 87.23$\\pm$2.67 & 55.68$\\pm$2.58\\\\\nP4 reference & P2--P5 & 4,958,807 & 90.03$\\pm$1.95 & 61.01$\\pm$2.14 & 87.94$\\pm$1.99 & 56.51$\\pm$1.06\\\\\nP5 & P2--P5 & 4,958,807 & 90.23$\\pm$1.51 & 61.16$\\pm$1.56 & 87.52$\\pm$2.29 & 55.73$\\pm$2.44\\\\\n\\bottomrule\n\\end{tabular}\n\\par\\smallskip\\begin{minipage}{0.98\\textwidth}\\footnotesize AP in percent, mean$\\pm$sample SD over seeds 101/202/303; the P4/full-Ghost reference is reused. Both 50\\% masks and all gate positions were prespecified. Coverage counts paired stages, not parameter/FLOP fractions; placement preserves 128/128/512 widths and one three-weight gate. Counts are unfused native totals, not device costs. Common final-checkpoint evaluation applies; test scores do not select architectures.\\end{minipage}\n\\end{table*}",
+      "rows_latex": [
+        [
+          "Condition",
+          "Ghost stages",
+          "\\makecell{Total\\\\parameters}",
+          "\\makecell{Val\\\\AP50}",
+          "\\makecell{Val\\\\AP50:95}",
+          "\\makecell{Internal\\\\test AP50}",
+          "\\makecell{Internal\\\\test AP50:95}"
+        ],
+        [
+          "\\multicolumn{7}{l}{(a) Stage coverage; ECA at P4}"
+        ],
+        [
+          "0\\% (standard)",
+          "None",
+          "8,758,703",
+          "89.21$\\pm$1.66",
+          "60.44$\\pm$1.79",
+          "87.75$\\pm$2.12",
+          "56.68$\\pm$2.12"
+        ],
+        [
+          "50\\% early",
+          "P2, P3",
+          "8,460,887",
+          "88.63$\\pm$2.26",
+          "60.56$\\pm$1.66",
+          "87.54$\\pm$2.56",
+          "56.53$\\pm$1.56"
+        ],
+        [
+          "50\\% deep",
+          "P4, P5",
+          "5,256,623",
+          "89.30$\\pm$2.32",
+          "60.39$\\pm$1.19",
+          "87.54$\\pm$1.66",
+          "56.16$\\pm$1.53"
+        ],
+        [
+          "100\\% reference",
+          "P2--P5",
+          "4,958,807",
+          "90.03$\\pm$1.95",
+          "61.01$\\pm$2.14",
+          "87.94$\\pm$1.99",
+          "56.51$\\pm$1.06"
+        ],
+        [
+          "\\multicolumn{7}{l}{(b) ECA gate position; full Ghost stages}"
+        ],
+        [
+          "P3",
+          "P2--P5",
+          "4,958,807",
+          "88.66$\\pm$1.95",
+          "60.49$\\pm$1.73",
+          "87.23$\\pm$2.67",
+          "55.68$\\pm$2.58"
+        ],
+        [
+          "P4 reference",
+          "P2--P5",
+          "4,958,807",
+          "90.03$\\pm$1.95",
+          "61.01$\\pm$2.14",
+          "87.94$\\pm$1.99",
+          "56.51$\\pm$1.06"
+        ],
+        [
+          "P5",
+          "P2--P5",
+          "4,958,807",
+          "90.23$\\pm$1.51",
+          "61.16$\\pm$1.56",
+          "87.52$\\pm$2.29",
+          "55.73$\\pm$2.44"
+        ]
+      ]
+    },
+    {
+      "number": 5,
+      "page": 7,
+      "labels": [
+        "Table_2",
+        "tab:attention80"
+      ],
+      "caption_latex": "Compact80 SSL attention comparison at a fixed 128-channel P4 branch",
+      "table_block_latex": "\\begin{table*}[!tb]\n\\centering\n\\small\n\\caption{Compact80 SSL attention comparison at a fixed 128-channel P4 branch}\n\\label{Table_2}\\label{tab:attention80}\n\\setlength{\\tabcolsep}{3.4pt}\n\\begin{tabular}{@{}lrrcccc@{}}\n\\toprule\nP4 module & \\makecell{Module\\\\parameters} & \\makecell{Total\\\\parameters} & \\makecell{Val\\\\AP50} & \\makecell{Val\\\\AP50:95} & \\makecell{Internal\\\\test AP50} & \\makecell{Internal\\\\test AP50:95}\\\\ \\midrule\nECA reference & 3 & 4,958,807 & 90.03$\\pm$1.95 & 61.01$\\pm$2.14 & 87.94$\\pm$1.99 & 56.51$\\pm$1.06\\\\\nIdentity (no attention) & 0 & 4,958,804 & 89.30$\\pm$1.55 & 59.96$\\pm$1.58 & 87.93$\\pm$1.84 & 56.14$\\pm$1.65\\\\\nPure CA & 3,344 & 4,962,148 & 88.53$\\pm$2.00 & 60.30$\\pm$1.86 & 86.40$\\pm$3.52 & 54.66$\\pm$2.76\\\\\nPure CBAM & 2,146 & 4,960,950 & 88.51$\\pm$2.39 & 59.67$\\pm$1.65 & 87.07$\\pm$3.01 & 55.74$\\pm$2.46\\\\\n\\bottomrule\n\\end{tabular}\n\\par\\smallskip\\begin{minipage}{\\linewidth}\\footnotesize AP in percent, mean$\\pm$sample SD across seeds 101, 202, and 303; the same frozen split, seed-specific SSL corpus, 300 epochs, and fixed last checkpoint apply. Parameter counts are from unfused native construction and are not device-cost measurements. The ECA reference is reused across the architecture contrasts; it is not an additional independent replicate. Module choice was fixed before execution and is not selected using internal-test scores.\\end{minipage}\n\\end{table*}",
+      "rows_latex": [
+        [
+          "P4 module",
+          "\\makecell{Module\\\\parameters}",
+          "\\makecell{Total\\\\parameters}",
+          "\\makecell{Val\\\\AP50}",
+          "\\makecell{Val\\\\AP50:95}",
+          "\\makecell{Internal\\\\test AP50}",
+          "\\makecell{Internal\\\\test AP50:95}"
+        ],
+        [
+          "ECA reference",
+          "3",
+          "4,958,807",
+          "90.03$\\pm$1.95",
+          "61.01$\\pm$2.14",
+          "87.94$\\pm$1.99",
+          "56.51$\\pm$1.06"
+        ],
+        [
+          "Identity (no attention)",
+          "0",
+          "4,958,804",
+          "89.30$\\pm$1.55",
+          "59.96$\\pm$1.58",
+          "87.93$\\pm$1.84",
+          "56.14$\\pm$1.65"
+        ],
+        [
+          "Pure CA",
+          "3,344",
+          "4,962,148",
+          "88.53$\\pm$2.00",
+          "60.30$\\pm$1.86",
+          "86.40$\\pm$3.52",
+          "54.66$\\pm$2.76"
+        ],
+        [
+          "Pure CBAM",
+          "2,146",
+          "4,960,950",
+          "88.51$\\pm$2.39",
+          "59.67$\\pm$1.65",
+          "87.07$\\pm$3.01",
+          "55.74$\\pm$2.46"
+        ]
+      ]
+    },
+    {
+      "number": 6,
+      "page": 7,
+      "labels": [
+        "Table_3",
+        "tab:main80"
+      ],
+      "caption_latex": "Common COCO detection results with 80 manually labeled training images (6.73\\% of the training pool)",
+      "table_block_latex": "\\begin{table*}[!tb]\n\\centering\n\\small\n\\caption{Common COCO detection results with 80 manually labeled training images (6.73\\% of the training pool)}\n\\label{Table_3}\\label{tab:main80}\n\\setlength{\\tabcolsep}{4pt}\n\\begin{tabular}{@{}p{0.17\\textwidth}p{0.12\\textwidth}cccc@{}}\n\\toprule\nModel & Training & \\makecell{Val\\\\AP50} & \\makecell{Val\\\\AP50:95} & \\makecell{Internal\\\\test AP50} & \\makecell{Internal\\\\test AP50:95}\\\\ \\midrule\nFull YOLOv7 teacher & Manual only & 89.37$\\pm$0.67 & 60.49$\\pm$1.58 & 87.61$\\pm$1.93 & 55.89$\\pm$2.98\\\\\nCompact TGE & Manual only & 51.07$\\pm$3.27 & 23.58$\\pm$1.87 & 59.06$\\pm$0.15 & 27.05$\\pm$1.11\\\\\nCompact TGE & Offline SSL & 90.03$\\pm$1.95 & 61.01$\\pm$2.14 & 87.94$\\pm$1.99 & 56.51$\\pm$1.06\\\\\nWider TGE & Manual only & 55.98$\\pm$7.38 & 26.04$\\pm$3.83 & 62.63$\\pm$2.39 & 29.38$\\pm$1.91\\\\\nWider TGE & Offline SSL & 89.50$\\pm$2.00 & 60.23$\\pm$1.27 & 86.60$\\pm$2.22 & 55.30$\\pm$1.45\\\\\nYOLOv8n & Manual only & 77.74$\\pm$1.31 & 45.81$\\pm$0.15 & 80.05$\\pm$1.79 & 46.28$\\pm$1.22\\\\\nYOLOv8n & Offline SSL & 90.18$\\pm$1.38 & 62.97$\\pm$1.75 & 88.23$\\pm$2.09 & 58.22$\\pm$1.46\\\\\n\\bottomrule\n\\end{tabular}\n\\par\\smallskip\\begin{minipage}{\\linewidth}\\footnotesize Mean$\\pm$sample SD over training seeds 101, 202, and 303. All students start from scratch; the full teacher uses pretrained initialization. All models use final checkpoints after 300 epochs, FP32 evaluation, 640 input and identical manual subsets. These are deduplicated internal controls, not sequence-independent estimates.\\end{minipage}\n\\end{table*}",
+      "rows_latex": [
+        [
+          "Model",
+          "Training",
+          "\\makecell{Val\\\\AP50}",
+          "\\makecell{Val\\\\AP50:95}",
+          "\\makecell{Internal\\\\test AP50}",
+          "\\makecell{Internal\\\\test AP50:95}"
+        ],
+        [
+          "Full YOLOv7 teacher",
+          "Manual only",
+          "89.37$\\pm$0.67",
+          "60.49$\\pm$1.58",
+          "87.61$\\pm$1.93",
+          "55.89$\\pm$2.98"
+        ],
+        [
+          "Compact TGE",
+          "Manual only",
+          "51.07$\\pm$3.27",
+          "23.58$\\pm$1.87",
+          "59.06$\\pm$0.15",
+          "27.05$\\pm$1.11"
+        ],
+        [
+          "Compact TGE",
+          "Offline SSL",
+          "90.03$\\pm$1.95",
+          "61.01$\\pm$2.14",
+          "87.94$\\pm$1.99",
+          "56.51$\\pm$1.06"
+        ],
+        [
+          "Wider TGE",
+          "Manual only",
+          "55.98$\\pm$7.38",
+          "26.04$\\pm$3.83",
+          "62.63$\\pm$2.39",
+          "29.38$\\pm$1.91"
+        ],
+        [
+          "Wider TGE",
+          "Offline SSL",
+          "89.50$\\pm$2.00",
+          "60.23$\\pm$1.27",
+          "86.60$\\pm$2.22",
+          "55.30$\\pm$1.45"
+        ],
+        [
+          "YOLOv8n",
+          "Manual only",
+          "77.74$\\pm$1.31",
+          "45.81$\\pm$0.15",
+          "80.05$\\pm$1.79",
+          "46.28$\\pm$1.22"
+        ],
+        [
+          "YOLOv8n",
+          "Offline SSL",
+          "90.18$\\pm$1.38",
+          "62.97$\\pm$1.75",
+          "88.23$\\pm$2.09",
+          "58.22$\\pm$1.46"
+        ]
+      ]
+    },
+    {
+      "number": 7,
+      "page": 9,
+      "labels": [
+        "tab:tracking_t2"
+      ],
+      "caption_latex": "Fixed-checkpoint tracking accuracy on two frozen snapper excerpts",
+      "table_block_latex": "\\begin{table*}[!tb]\n\\centering\n\\small\n\\caption{Fixed-checkpoint tracking accuracy on two frozen snapper excerpts}\n\\label{tab:tracking_t2}\n\\setlength{\\tabcolsep}{4pt}\n\\begin{tabular}{@{}llrrrrrrr@{}}\n\\toprule\nSequence & Tracker & MOTA(\\%) & MOTP(\\%) & IDF1(\\%) & IDSW & FP & FN & Frag\\\\\n\\midrule\nR04 & SORT & 50.17 & 79.95 & 59.56 & 9 & 84 & 499 & 16\\\\\nR04 & ByteTrack & 50.42 & 76.40 & 54.14 & 13 & 90 & 486 & 13\\\\\nR02 & SORT & 37.49 & 78.59 & 53.54 & 6 & 65 & 696 & 12\\\\\nR02 & ByteTrack & 34.31 & 73.80 & 52.22 & 4 & 97 & 705 & 10\\\\\nCombined & SORT & 43.73 & 79.36 & 56.66 & 15 & 149 & 1195 & 28\\\\\nCombined & ByteTrack & 42.24 & 75.29 & 53.21 & 17 & 187 & 1191 & 23\\\\\n\\bottomrule\n\\end{tabular}\n\\par\\smallskip\\begin{minipage}{0.98\\textwidth}\\footnotesize Each sequence has 750 frames; combined results cover 1500 frames and 2415 visible GT boxes. Matching IoU is 0.5. MOTP is mean matched-box IoU (higher is better), not a distance error. Combined values use the official CLEAR/Identity sequence combiners, not arithmetic means of percentages. One fixed detector and two same-source clips are evaluated, without training-seed repetition, confidence tuning or independent acquisition claims. Empty-GT and empty-prediction frames remain. These are accuracy results from sequential file input; detection and tracking were run in separate processes to construct the common-cache comparison, so the export timings do not establish end-to-end FPS or energy.\\end{minipage}\n\\end{table*}",
+      "rows_latex": [
+        [
+          "Sequence",
+          "Tracker",
+          "MOTA(\\%)",
+          "MOTP(\\%)",
+          "IDF1(\\%)",
+          "IDSW",
+          "FP",
+          "FN",
+          "Frag"
+        ],
+        [
+          "R04",
+          "SORT",
+          "50.17",
+          "79.95",
+          "59.56",
+          "9",
+          "84",
+          "499",
+          "16"
+        ],
+        [
+          "R04",
+          "ByteTrack",
+          "50.42",
+          "76.40",
+          "54.14",
+          "13",
+          "90",
+          "486",
+          "13"
+        ],
+        [
+          "R02",
+          "SORT",
+          "37.49",
+          "78.59",
+          "53.54",
+          "6",
+          "65",
+          "696",
+          "12"
+        ],
+        [
+          "R02",
+          "ByteTrack",
+          "34.31",
+          "73.80",
+          "52.22",
+          "4",
+          "97",
+          "705",
+          "10"
+        ],
+        [
+          "Combined",
+          "SORT",
+          "43.73",
+          "79.36",
+          "56.66",
+          "15",
+          "149",
+          "1195",
+          "28"
+        ],
+        [
+          "Combined",
+          "ByteTrack",
+          "42.24",
+          "75.29",
+          "53.21",
+          "17",
+          "187",
+          "1191",
+          "23"
+        ]
+      ]
+    },
+    {
+      "number": 8,
+      "page": 9,
+      "labels": [
+        "Table_4",
+        "tab:device_trt_models"
+      ],
+      "caption_latex": "Native and TensorRT detector costs for three models on the Jetson file-video workload",
+      "table_block_latex": "\\begin{table*}[!tb]\n\\centering\n\\small\n\\caption{Native and TensorRT detector costs for three models on the Jetson file-video workload}\n\\label{Table_4}\\label{tab:device_trt_models}\n\\setlength{\\tabcolsep}{3pt}\n\\begin{tabular}{@{}llrrrr@{}}\n\\toprule\nModel & Backend & frames/s & Module W & J/frame & frames/s/W\\\\\n\\midrule\ncompact SSL & PyTorch FP16 & 16.229$\\pm$0.133 & 8.322$\\pm$0.027 & 0.51278$\\pm$0.00362 & 1.9502$\\pm$0.0138\\\\\ncompact SSL & TRT FP16-enabled & 25.007$\\pm$0.028 & 8.105$\\pm$0.008 & 0.32411$\\pm$0.00008 & 3.0853$\\pm$0.0007\\\\\nYOLOv8n manual-only & PyTorch FP16 & 21.810$\\pm$0.052 & 8.076$\\pm$0.022 & 0.37028$\\pm$0.00110 & 2.7007$\\pm$0.0080\\\\\nYOLOv8n manual-only & TRT FP16-enabled & 25.918$\\pm$1.066 & 7.516$\\pm$0.127 & 0.29019$\\pm$0.00702 & 3.4473$\\pm$0.0835\\\\\nYOLOv8n SSL & PyTorch FP16 & 21.775$\\pm$0.264 & 8.066$\\pm$0.021 & 0.37048$\\pm$0.00350 & 2.6994$\\pm$0.0256\\\\\nYOLOv8n SSL & TRT FP16-enabled & 25.600$\\pm$1.300 & 7.482$\\pm$0.150 & 0.29258$\\pm$0.00873 & 3.4200$\\pm$0.1038\\\\\n\\bottomrule\n\\end{tabular}\n\\par\\smallskip\\begin{minipage}{0.98\\textwidth}\\footnotesize Mean$\\pm$sample SD over three new-boot processes per fixed checkpoint/backend on the 1475-frame 4K file. Native uses one EOF pass; TRT uses two (2950 frames, $>60$ s). Costs include decode, native NMS, CPU detections and record flushing, excluding tracking/render/encode/camera. Ratios are computed per run before aggregation. VDD\\_IN includes Firefox/background, not wall or isolated model/GPU power. TRT enables FP16 with FP32 I/O and possible FP32 fallback. Startup, loaded-memory and warm-up conditions vary across series; rows compare deployment configurations, not paired architecture-causal effects.\\end{minipage}\n\\end{table*}",
+      "rows_latex": [
+        [
+          "Model",
+          "Backend",
+          "frames/s",
+          "Module W",
+          "J/frame",
+          "frames/s/W"
+        ],
+        [
+          "compact SSL",
+          "PyTorch FP16",
+          "16.229$\\pm$0.133",
+          "8.322$\\pm$0.027",
+          "0.51278$\\pm$0.00362",
+          "1.9502$\\pm$0.0138"
+        ],
+        [
+          "compact SSL",
+          "TRT FP16-enabled",
+          "25.007$\\pm$0.028",
+          "8.105$\\pm$0.008",
+          "0.32411$\\pm$0.00008",
+          "3.0853$\\pm$0.0007"
+        ],
+        [
+          "YOLOv8n manual-only",
+          "PyTorch FP16",
+          "21.810$\\pm$0.052",
+          "8.076$\\pm$0.022",
+          "0.37028$\\pm$0.00110",
+          "2.7007$\\pm$0.0080"
+        ],
+        [
+          "YOLOv8n manual-only",
+          "TRT FP16-enabled",
+          "25.918$\\pm$1.066",
+          "7.516$\\pm$0.127",
+          "0.29019$\\pm$0.00702",
+          "3.4473$\\pm$0.0835"
+        ],
+        [
+          "YOLOv8n SSL",
+          "PyTorch FP16",
+          "21.775$\\pm$0.264",
+          "8.066$\\pm$0.021",
+          "0.37048$\\pm$0.00350",
+          "2.6994$\\pm$0.0256"
+        ],
+        [
+          "YOLOv8n SSL",
+          "TRT FP16-enabled",
+          "25.600$\\pm$1.300",
+          "7.482$\\pm$0.150",
+          "0.29258$\\pm$0.00873",
+          "3.4200$\\pm$0.1038"
+        ]
+      ]
+    },
+    {
+      "number": 9,
+      "page": 9,
+      "labels": [
+        "tab:device_trt_accuracy"
+      ],
+      "caption_latex": "Frozen common-image accuracy of the three tested TensorRT engines",
+      "table_block_latex": "\\begin{table*}[!tb]\n\\centering\n\\small\n\\caption{Frozen common-image accuracy of the three tested TensorRT engines}\n\\label{tab:device_trt_accuracy}\n\\setlength{\\tabcolsep}{3pt}\n\\begin{tabular}{@{}lrrrrrr@{}}\n\\toprule\nModel & \\makecell{Val\\\\AP50(\\%)} & \\makecell{Val\\\\AP50:95(\\%)} & \\makecell{Internal test\\\\AP50(\\%)} & \\makecell{Internal test\\\\AP50:95(\\%)} & \\makecell{Val $\\Delta$\\\\AP50(pp)} & \\makecell{Val $\\Delta$\\\\AP50:95(pp)}\\\\\n\\midrule\ncompact SSL & 90.1520 & 62.3077 & 86.1097 & 55.7489 & +0.0464 & +0.0644\\\\\nYOLOv8n manual-only & 76.1807 & 45.9025 & 79.1546 & 45.2732 & -0.3594 & +0.1441\\\\\nYOLOv8n SSL & 89.5307 & 63.1383 & 87.5476 & 58.5033 & +0.0193 & +0.0596\\\\\n\\bottomrule\n\\end{tabular}\n\\par\\smallskip\\begin{minipage}{0.98\\textwidth}\\footnotesize One checkpoint/engine per row; both splits have 149 images. Evaluation uses confidence 0.001, native NMS 0.65/model maxDet 300 and COCO maxDets 100. Deltas are TRT minus same-checkpoint FP32 in pp. Each validation AP decrease must be $\\leq0.5$ pp; all pass. FP32 promotes stored FP16 weights without reconstructing unstripped training weights. Test is report-only. Small signed changes establish neither significant gains nor statistical noninferiority; these are within-collection checks.\\end{minipage}\n\\end{table*}",
+      "rows_latex": [
+        [
+          "Model",
+          "\\makecell{Val\\\\AP50(\\%)}",
+          "\\makecell{Val\\\\AP50:95(\\%)}",
+          "\\makecell{Internal test\\\\AP50(\\%)}",
+          "\\makecell{Internal test\\\\AP50:95(\\%)}",
+          "\\makecell{Val $\\Delta$\\\\AP50(pp)}",
+          "\\makecell{Val $\\Delta$\\\\AP50:95(pp)}"
+        ],
+        [
+          "compact SSL",
+          "90.1520",
+          "62.3077",
+          "86.1097",
+          "55.7489",
+          "+0.0464",
+          "+0.0644"
+        ],
+        [
+          "YOLOv8n manual-only",
+          "76.1807",
+          "45.9025",
+          "79.1546",
+          "45.2732",
+          "-0.3594",
+          "+0.1441"
+        ],
+        [
+          "YOLOv8n SSL",
+          "89.5307",
+          "63.1383",
+          "87.5476",
+          "58.5033",
+          "+0.0193",
+          "+0.0596"
+        ]
+      ]
+    },
+    {
+      "number": 10,
+      "page": 9,
+      "labels": [
+        "tab:pi_performance"
+      ],
+      "caption_latex": "Raspberry Pi~5 CPU FP32 detection on the fixed 300-frame file segment",
+      "table_block_latex": "\\begin{table*}[!tb]\n\\centering\n\\small\n\\caption{Raspberry Pi~5 CPU FP32 detection on the fixed 300-frame file segment}\n\\label{tab:pi_performance}\n\\setlength{\\tabcolsep}{4pt}\n\\begin{tabular}{@{}lrrrr@{}}\n\\toprule\nModel & \\makecell{Throughput\\\\frames/s} & \\makecell{Mean forward\\\\ms} & \\makecell{Window peak RSS\\\\MiB} & \\makecell{Lifetime VmHWM\\\\MiB}\\\\\n\\midrule\nIdentity & 2.164$\\pm$0.002 & 417.25$\\pm$0.44 & 408.02$\\pm$0.39 & 408.02$\\pm$0.39\\\\\nCA & 2.153$\\pm$0.005 & 419.28$\\pm$0.95 & 408.78$\\pm$1.32 & 408.78$\\pm$1.32\\\\\nCBAM & 2.155$\\pm$0.003 & 419.45$\\pm$0.70 & 409.55$\\pm$1.26 & 409.55$\\pm$1.26\\\\\nECA / compact SSL & 2.152$\\pm$0.011 & 419.95$\\pm$2.07 & 407.07$\\pm$1.04 & 407.07$\\pm$1.04\\\\\nYOLOv8n manual-only & 3.211$\\pm$0.024 & 267.42$\\pm$2.42 & 385.76$\\pm$0.98 & 403.49$\\pm$1.02\\\\\nYOLOv8n SSL & 3.212$\\pm$0.019 & 267.19$\\pm$0.74 & 392.45$\\pm$12.45 & 404.35$\\pm$2.15\\\\\n\\bottomrule\n\\end{tabular}\n\\par\\smallskip\\begin{minipage}{0.98\\textwidth}\\footnotesize Mean$\\pm$sample SD over three fresh processes per checkpoint on one boot with desktop/remote-access background. Input is the first 300 frames, not full-file EOF. Throughput covers the complete window; forward covers model execution. RSS is the formal-window sampled peak; VmHWM includes lifetime loading/warm-up. These overlapping memory values are not summed. ECA and compact SSL are one checkpoint. No power is measured in this series.\\end{minipage}\n\\end{table*}",
+      "rows_latex": [
+        [
+          "Model",
+          "\\makecell{Throughput\\\\frames/s}",
+          "\\makecell{Mean forward\\\\ms}",
+          "\\makecell{Window peak RSS\\\\MiB}",
+          "\\makecell{Lifetime VmHWM\\\\MiB}"
+        ],
+        [
+          "Identity",
+          "2.164$\\pm$0.002",
+          "417.25$\\pm$0.44",
+          "408.02$\\pm$0.39",
+          "408.02$\\pm$0.39"
+        ],
+        [
+          "CA",
+          "2.153$\\pm$0.005",
+          "419.28$\\pm$0.95",
+          "408.78$\\pm$1.32",
+          "408.78$\\pm$1.32"
+        ],
+        [
+          "CBAM",
+          "2.155$\\pm$0.003",
+          "419.45$\\pm$0.70",
+          "409.55$\\pm$1.26",
+          "409.55$\\pm$1.26"
+        ],
+        [
+          "ECA / compact SSL",
+          "2.152$\\pm$0.011",
+          "419.95$\\pm$2.07",
+          "407.07$\\pm$1.04",
+          "407.07$\\pm$1.04"
+        ],
+        [
+          "YOLOv8n manual-only",
+          "3.211$\\pm$0.024",
+          "267.42$\\pm$2.42",
+          "385.76$\\pm$0.98",
+          "403.49$\\pm$1.02"
+        ],
+        [
+          "YOLOv8n SSL",
+          "3.212$\\pm$0.019",
+          "267.19$\\pm$0.74",
+          "392.45$\\pm$12.45",
+          "404.35$\\pm$2.15"
+        ]
+      ]
+    },
+    {
+      "number": 11,
+      "page": 10,
+      "labels": [
+        "Table_5",
+        "tab:budget_matrix"
+      ],
+      "caption_latex": "Complete two-budget/two-capacity manual-only and offline-SSL comparison.",
+      "table_block_latex": "\\begin{table*}[!tb]\n\\centering\\small\n\\caption{Complete two-budget/two-capacity manual-only and offline-SSL comparison.}\n\\label{Table_5}\\label{tab:budget_matrix}\n\\setlength{\\tabcolsep}{3pt}\n\\begin{tabular}{@{}cllrrrr@{}}\n\\toprule\nManual images & Student & Training & \\makecell{Val\\\\AP50} & \\makecell{Val\\\\AP50:95} & \\makecell{Internal test\\\\AP50} & \\makecell{Internal test\\\\AP50:95}\\\\\n\\midrule\n80 & Compact TGE & Manual only & 51.07$\\pm$3.27 & 23.58$\\pm$1.87 & 59.06$\\pm$0.15 & 27.05$\\pm$1.11\\\\\n80 & Compact TGE & Offline SSL & 90.03$\\pm$1.95 & 61.01$\\pm$2.14 & 87.94$\\pm$1.99 & 56.51$\\pm$1.06\\\\\n80 & Wider TGE & Manual only & 55.98$\\pm$7.38 & 26.04$\\pm$3.83 & 62.63$\\pm$2.39 & 29.38$\\pm$1.91\\\\\n80 & Wider TGE & Offline SSL & 89.50$\\pm$2.00 & 60.23$\\pm$1.27 & 86.60$\\pm$2.22 & 55.30$\\pm$1.45\\\\\n144 & Compact TGE & Manual only & 74.37$\\pm$2.39 & 41.77$\\pm$2.67 & 78.82$\\pm$1.17 & 44.40$\\pm$1.55\\\\\n144 & Compact TGE & Offline SSL & 91.06$\\pm$1.65 & 62.76$\\pm$2.35 & 89.06$\\pm$1.83 & 58.15$\\pm$1.82\\\\\n144 & Wider TGE & Manual only & 80.79$\\pm$1.45 & 46.44$\\pm$1.90 & 83.18$\\pm$1.86 & 47.30$\\pm$1.04\\\\\n144 & Wider TGE & Offline SSL & 90.51$\\pm$1.76 & 62.75$\\pm$1.91 & 88.83$\\pm$0.34 & 57.67$\\pm$1.38\\\\\n\\bottomrule\n\\end{tabular}\n\\par\\smallskip\\begin{minipage}{0.98\\textwidth}\\footnotesize Percent, mean$\\pm$sample SD over seeds 101/202/303. The budgets are 6.73\\% and 12.12\\% of the 1188-image training pool. Compact/wider students have 4,958,807/6,914,175 parameters; all use 300 epochs, scratch initialization and fixed final checkpoints. Each budget/seed uses one frozen teacher corpus shared across the two SSL capacities. Equal epoch counts do not match image exposure or optimizer updates.\\end{minipage}\n\\end{table*}",
+      "rows_latex": [
+        [
+          "Manual images",
+          "Student",
+          "Training",
+          "\\makecell{Val\\\\AP50}",
+          "\\makecell{Val\\\\AP50:95}",
+          "\\makecell{Internal test\\\\AP50}",
+          "\\makecell{Internal test\\\\AP50:95}"
+        ],
+        [
+          "80",
+          "Compact TGE",
+          "Manual only",
+          "51.07$\\pm$3.27",
+          "23.58$\\pm$1.87",
+          "59.06$\\pm$0.15",
+          "27.05$\\pm$1.11"
+        ],
+        [
+          "80",
+          "Compact TGE",
+          "Offline SSL",
+          "90.03$\\pm$1.95",
+          "61.01$\\pm$2.14",
+          "87.94$\\pm$1.99",
+          "56.51$\\pm$1.06"
+        ],
+        [
+          "80",
+          "Wider TGE",
+          "Manual only",
+          "55.98$\\pm$7.38",
+          "26.04$\\pm$3.83",
+          "62.63$\\pm$2.39",
+          "29.38$\\pm$1.91"
+        ],
+        [
+          "80",
+          "Wider TGE",
+          "Offline SSL",
+          "89.50$\\pm$2.00",
+          "60.23$\\pm$1.27",
+          "86.60$\\pm$2.22",
+          "55.30$\\pm$1.45"
+        ],
+        [
+          "144",
+          "Compact TGE",
+          "Manual only",
+          "74.37$\\pm$2.39",
+          "41.77$\\pm$2.67",
+          "78.82$\\pm$1.17",
+          "44.40$\\pm$1.55"
+        ],
+        [
+          "144",
+          "Compact TGE",
+          "Offline SSL",
+          "91.06$\\pm$1.65",
+          "62.76$\\pm$2.35",
+          "89.06$\\pm$1.83",
+          "58.15$\\pm$1.82"
+        ],
+        [
+          "144",
+          "Wider TGE",
+          "Manual only",
+          "80.79$\\pm$1.45",
+          "46.44$\\pm$1.90",
+          "83.18$\\pm$1.86",
+          "47.30$\\pm$1.04"
+        ],
+        [
+          "144",
+          "Wider TGE",
+          "Offline SSL",
+          "90.51$\\pm$1.76",
+          "62.75$\\pm$1.91",
+          "88.83$\\pm$0.34",
+          "57.67$\\pm$1.38"
+        ]
+      ]
+    },
+    {
+      "number": 12,
+      "page": 10,
+      "labels": [
+        "Table_6",
+        "tab:stepbudget80"
+      ],
+      "caption_latex": "Compact80 manual repetition at the reconstructed SSL update budget",
+      "table_block_latex": "\\begin{table*}[!tb]\n\\centering\n\\small\n\\caption{Compact80 manual repetition at the reconstructed SSL update budget}\n\\label{Table_6}\\label{tab:stepbudget80}\n\\setlength{\\tabcolsep}{4pt}\n\\begin{tabular}{@{}lcccc@{}}\n\\toprule\nTraining & \\makecell{Val\\\\AP50} & \\makecell{Val\\\\AP50:95} & \\makecell{Internal\\\\test AP50} & \\makecell{Internal\\\\test AP50:95}\\\\ \\midrule\nManual only & 51.07$\\pm$3.27 & 23.58$\\pm$1.87 & 59.06$\\pm$0.15 & 27.05$\\pm$1.11\\\\\nManual repetition & 84.21$\\pm$1.46 & 52.60$\\pm$0.95 & 82.93$\\pm$0.09 & 50.09$\\pm$0.83\\\\\nOffline SSL & 90.03$\\pm$1.95 & 61.01$\\pm$2.14 & 87.94$\\pm$1.99 & 56.51$\\pm$1.06\\\\\n\\bottomrule\n\\end{tabular}\n\\par\\smallskip\\begin{minipage}{\\linewidth}\\footnotesize Percent, mean$\\pm$sample SD over seeds 101, 202, and 303, using the same fixed internal split and 80 manual images. All rows use 300 epochs and the final checkpoint. Manual repetition matches SSL loader sizes and reconstructed update schedules; successful-update counters are directly measured for the repetition control and reconstructed for the SSL reference. \\end{minipage}\n\\end{table*}",
+      "rows_latex": [
+        [
+          "Training",
+          "\\makecell{Val\\\\AP50}",
+          "\\makecell{Val\\\\AP50:95}",
+          "\\makecell{Internal\\\\test AP50}",
+          "\\makecell{Internal\\\\test AP50:95}"
+        ],
+        [
+          "Manual only",
+          "51.07$\\pm$3.27",
+          "23.58$\\pm$1.87",
+          "59.06$\\pm$0.15",
+          "27.05$\\pm$1.11"
+        ],
+        [
+          "Manual repetition",
+          "84.21$\\pm$1.46",
+          "52.60$\\pm$0.95",
+          "82.93$\\pm$0.09",
+          "50.09$\\pm$0.83"
+        ],
+        [
+          "Offline SSL",
+          "90.03$\\pm$1.95",
+          "61.01$\\pm$2.14",
+          "87.94$\\pm$1.99",
+          "56.51$\\pm$1.06"
+        ]
+      ]
+    },
+    {
+      "number": 13,
+      "page": 10,
+      "labels": [
+        "tab:teachers"
+      ],
+      "caption_latex": "Common COCO results for the full YOLOv7 teacher by manual-label budget",
+      "table_block_latex": "\\begin{table*}[!tb]\n\\centering\n\\small\n\\caption{Common COCO results for the full YOLOv7 teacher by manual-label budget}\n\\label{tab:teachers}\n\\setlength{\\tabcolsep}{4pt}\n\\begin{tabular}{@{}ccccc@{}}\n\\toprule\nBudget & \\makecell{Val\\\\AP50} & \\makecell{Val\\\\AP50:95} & \\makecell{Internal\\\\test AP50} & \\makecell{Internal\\\\test AP50:95}\\\\ \\midrule\n80 & 89.37$\\pm$0.67 & 60.49$\\pm$1.58 & 87.61$\\pm$1.93 & 55.89$\\pm$2.98\\\\\n144 & 92.14$\\pm$0.82 & 64.79$\\pm$1.49 & 89.28$\\pm$1.32 & 59.48$\\pm$2.37\\\\\n\\bottomrule\n\\end{tabular}\n\\par\\smallskip\\begin{minipage}{\\linewidth}\\footnotesize Mean$\\pm$sample SD, n=3 per budget. All teachers use the fixed final-epoch checkpoint and the common COCO evaluator.\\end{minipage}\n\\end{table*}",
+      "rows_latex": [
+        [
+          "Budget",
+          "\\makecell{Val\\\\AP50}",
+          "\\makecell{Val\\\\AP50:95}",
+          "\\makecell{Internal\\\\test AP50}",
+          "\\makecell{Internal\\\\test AP50:95}"
+        ],
+        [
+          "80",
+          "89.37$\\pm$0.67",
+          "60.49$\\pm$1.58",
+          "87.61$\\pm$1.93",
+          "55.89$\\pm$2.98"
+        ],
+        [
+          "144",
+          "92.14$\\pm$0.82",
+          "64.79$\\pm$1.49",
+          "89.28$\\pm$1.32",
+          "59.48$\\pm$2.37"
+        ]
+      ]
+    },
+    {
+      "number": 14,
+      "page": 10,
+      "labels": [
+        "Table_7",
+        "tab:pseudo_current"
+      ],
+      "caption_latex": "Fixed-threshold offline pseudo-label corpora and diagnostics using withheld training GT",
+      "table_block_latex": "\\begin{table*}[!tb]\n\\centering\n\\small\n\\caption{Fixed-threshold offline pseudo-label corpora and diagnostics using withheld training GT}\n\\label{Table_7}\\label{tab:pseudo_current}\n\\setlength{\\tabcolsep}{4pt}\n\\begin{tabular}{@{}cccccccc@{}}\n\\toprule\nBudget & Seed & \\makecell{Nonempty\\\\images} & \\makecell{Empty\\\\excluded} & Boxes & Combined & \\makecell{Precision\\\\(\\%)} & \\makecell{Recall\\\\(\\%)}\\\\ \\midrule\n80 & 101 & 1086 & 22 & 2118 & 1166 & 83.57 & 87.28\\\\\n80 & 202 & 1073 & 35 & 2164 & 1153 & 80.73 & 86.14\\\\\n80 & 303 & 1054 & 54 & 1987 & 1134 & 87.32 & 85.55\\\\\n144 & 101 & 1036 & 8 & 1910 & 1180 & 87.75 & 87.66\\\\\n144 & 202 & 1030 & 14 & 1909 & 1174 & 87.38 & 87.24\\\\\n144 & 303 & 1037 & 7 & 1977 & 1181 & 86.39 & 89.33\\\\\n\\bottomrule\n\\end{tabular}\n\\par\\smallskip\\begin{minipage}{\\linewidth}\\footnotesize Generation confidence 0.5, NMS IoU 0.45; one-to-one diagnostic matching at IoU$\\geq$0.5. Combined images include the manual subset. Diagnostics include the full withheld pool and never select the threshold. Each budget/seed corpus is bound to its own teacher checkpoint.\\end{minipage}\n\\end{table*}",
+      "rows_latex": [
+        [
+          "Budget",
+          "Seed",
+          "\\makecell{Nonempty\\\\images}",
+          "\\makecell{Empty\\\\excluded}",
+          "Boxes",
+          "Combined",
+          "\\makecell{Precision\\\\(\\%)}",
+          "\\makecell{Recall\\\\(\\%)}"
+        ],
+        [
+          "80",
+          "101",
+          "1086",
+          "22",
+          "2118",
+          "1166",
+          "83.57",
+          "87.28"
+        ],
+        [
+          "80",
+          "202",
+          "1073",
+          "35",
+          "2164",
+          "1153",
+          "80.73",
+          "86.14"
+        ],
+        [
+          "80",
+          "303",
+          "1054",
+          "54",
+          "1987",
+          "1134",
+          "87.32",
+          "85.55"
+        ],
+        [
+          "144",
+          "101",
+          "1036",
+          "8",
+          "1910",
+          "1180",
+          "87.75",
+          "87.66"
+        ],
+        [
+          "144",
+          "202",
+          "1030",
+          "14",
+          "1909",
+          "1174",
+          "87.38",
+          "87.24"
+        ],
+        [
+          "144",
+          "303",
+          "1037",
+          "7",
+          "1977",
+          "1181",
+          "86.39",
+          "89.33"
+        ]
+      ]
+    },
+    {
+      "number": 15,
+      "page": 10,
+      "labels": [
+        "tab:dayholdout_stepmatched"
+      ],
+      "caption_latex": "Date-held-out compact80 comparison after matching the measured SSL update schedule.",
+      "table_block_latex": "\\begin{table*}[!tb]\n\\centering\n\\caption{Date-held-out compact80 comparison after matching the measured SSL update schedule.}\n\\label{tab:dayholdout_stepmatched}\n\\small\n\\setlength{\\tabcolsep}{5pt}\n\\begin{tabular}{lrrrr}\n\\toprule\n & \\multicolumn{2}{c}{Validation} & \\multicolumn{2}{c}{Test}\\\\\nTraining setting & AP50 & AP50:95 & AP50 & AP50:95\\\\\n\\midrule\nManual-only, same-epoch & 46.36$\\pm$2.56 & 19.36$\\pm$0.64 & 59.90$\\pm$13.71 & 19.28$\\pm$4.60\\\\\nManual-only, repetition control & 69.37$\\pm$1.15 & 39.81$\\pm$2.21 & 65.45$\\pm$0.85 & 27.60$\\pm$1.58\\\\\nOffline SSL & 71.42$\\pm$3.40 & 34.26$\\pm$10.33 & 71.22$\\pm$5.69 & 29.99$\\pm$8.45\\\\\n\\bottomrule\n\\end{tabular}\n\\par\\smallskip\\begin{minipage}{\\textwidth}\\footnotesize Percent, mean$\\pm$sample SD across seeds 101/202/303 on one fixed date partition. All three conditions use the same fixed manual subset and whole-date partition. The date-specific teachers retain 56/87/89 pseudo-labeled images (one retained box each), giving SSL corpus lengths of 136/167/169 with the 80 manual images. The repetition control cycles only the 80 unique labeled images to these same total loader lengths, matching the measured SSL schedule of 820/970/1007 successful updates and per-update learning rates. All use the fixed 300-epoch last checkpoint and common evaluator. Matching updates does not match unique-image diversity, augmentation draws or autoanchor.\\end{minipage}\n\\end{table*}",
+      "rows_latex": [
+        [
+          "",
+          "\\multicolumn{2}{c}{Validation}",
+          "\\multicolumn{2}{c}{Test}"
+        ],
+        [
+          "Training setting",
+          "AP50",
+          "AP50:95",
+          "AP50",
+          "AP50:95"
+        ],
+        [
+          "Manual-only, same-epoch",
+          "46.36$\\pm$2.56",
+          "19.36$\\pm$0.64",
+          "59.90$\\pm$13.71",
+          "19.28$\\pm$4.60"
+        ],
+        [
+          "Manual-only, repetition control",
+          "69.37$\\pm$1.15",
+          "39.81$\\pm$2.21",
+          "65.45$\\pm$0.85",
+          "27.60$\\pm$1.58"
+        ],
+        [
+          "Offline SSL",
+          "71.42$\\pm$3.40",
+          "34.26$\\pm$10.33",
+          "71.22$\\pm$5.69",
+          "29.99$\\pm$8.45"
+        ]
+      ]
+    },
+    {
+      "number": 16,
+      "page": 12,
+      "labels": [
+        "tab:attention_device_cost"
+      ],
+      "caption_latex": "Native FP16 costs of the four fixed-width P4 attention variants on Jetson",
+      "table_block_latex": "\\begin{table*}[!tb]\n\\centering\n\\small\n\\caption{Native FP16 costs of the four fixed-width P4 attention variants on Jetson}\n\\label{tab:attention_device_cost}\n\\setlength{\\tabcolsep}{3pt}\n\\begin{tabular}{@{}lrrrrr@{}}\n\\toprule\nP4 module & \\makecell{CUDA forward\\\\ms} & \\makecell{Window RSS\\\\MiB} & \\makecell{Throughput\\\\frames/s} & \\makecell{Module power\\\\W} & \\makecell{Module energy\\\\J/frame}\\\\\n\\midrule\nIdentity & 35.47$\\pm$0.44 & 3842.7$\\pm$0.5 & 16.019$\\pm$0.128 & 8.297$\\pm$0.017 & 0.5180$\\pm$0.0031\\\\\nCA & 36.28$\\pm$0.20 & 3850.9$\\pm$4.5 & 15.914$\\pm$0.126 & 8.303$\\pm$0.020 & 0.5218$\\pm$0.0029\\\\\nCBAM & 36.19$\\pm$1.11 & 3852.6$\\pm$13.9 & 15.940$\\pm$0.327 & 8.305$\\pm$0.041 & 0.5211$\\pm$0.0081\\\\\nECA & 35.53$\\pm$0.24 & 3849.9$\\pm$1.5 & 16.050$\\pm$0.106 & 8.307$\\pm$0.014 & 0.5176$\\pm$0.0026\\\\\n\\bottomrule\n\\end{tabular}\n\\par\\smallskip\\begin{minipage}{0.98\\textwidth}\\footnotesize Mean$\\pm$sample SD over three new-boot processes per seed-101 checkpoint, using the 1475-frame 4K file, batch 1/640, confidence 0.25/NMS 0.65/maxDet 300. Costs cover a full EOF pass from decode through CPU detections and verification/logging, excluding tracking/render/encode/camera. Module VDD\\_IN includes Firefox/background; energy ratios are computed per run. CUDA-event forward excludes decode/postprocessing and is not reciprocal file FPS. RSS is the $\\sim$1 Hz formal-window sampled peak, not GPU allocation; overlapping memory readings are not summed. This contemporaneous attention series excludes earlier detector-backend repeats.\\end{minipage}\n\\end{table*}",
+      "rows_latex": [
+        [
+          "P4 module",
+          "\\makecell{CUDA forward\\\\ms}",
+          "\\makecell{Window RSS\\\\MiB}",
+          "\\makecell{Throughput\\\\frames/s}",
+          "\\makecell{Module power\\\\W}",
+          "\\makecell{Module energy\\\\J/frame}"
+        ],
+        [
+          "Identity",
+          "35.47$\\pm$0.44",
+          "3842.7$\\pm$0.5",
+          "16.019$\\pm$0.128",
+          "8.297$\\pm$0.017",
+          "0.5180$\\pm$0.0031"
+        ],
+        [
+          "CA",
+          "36.28$\\pm$0.20",
+          "3850.9$\\pm$4.5",
+          "15.914$\\pm$0.126",
+          "8.303$\\pm$0.020",
+          "0.5218$\\pm$0.0029"
+        ],
+        [
+          "CBAM",
+          "36.19$\\pm$1.11",
+          "3852.6$\\pm$13.9",
+          "15.940$\\pm$0.327",
+          "8.305$\\pm$0.041",
+          "0.5211$\\pm$0.0081"
+        ],
+        [
+          "ECA",
+          "35.53$\\pm$0.24",
+          "3849.9$\\pm$1.5",
+          "16.050$\\pm$0.106",
+          "8.307$\\pm$0.014",
+          "0.5176$\\pm$0.0026"
+        ]
+      ]
+    },
+    {
+      "number": 17,
+      "page": 12,
+      "labels": [
+        "tab:pi_core_power"
+      ],
+      "caption_latex": "Separate Raspberry Pi PMIC core-rail measurements; these are not whole-board power.",
+      "table_block_latex": "\\begin{table*}[!tb]\n\\centering\\small\n\\caption{Separate Raspberry Pi PMIC core-rail measurements; these are not whole-board power.}\n\\label{tab:pi_core_power}\n\\setlength{\\tabcolsep}{6pt}\n\\begin{tabular}{@{}lrrr@{}}\n\\toprule\nP4 module & \\makecell{Unloaded baseline\\\\VDD\\_CORE W} & \\makecell{Inference load\\\\VDD\\_CORE W} & \\makecell{Within-run increment\\\\VDD\\_CORE W}\\\\\n\\midrule\nIdentity & 2.051$\\pm$0.095 & 4.418$\\pm$0.076 & 2.367$\\pm$0.111\\\\\nCA & 2.048$\\pm$0.037 & 4.452$\\pm$0.006 & 2.403$\\pm$0.044\\\\\nCBAM & 2.056$\\pm$0.067 & 4.403$\\pm$0.150 & 2.348$\\pm$0.163\\\\\nECA & 2.035$\\pm$0.131 & 4.493$\\pm$0.114 & 2.458$\\pm$0.202\\\\\n\\bottomrule\n\\end{tabular}\n\\par\\smallskip\\begin{minipage}{0.98\\textwidth}\\footnotesize Mean$\\pm$sample SD over three same-boot fresh processes per checkpoint, measured separately from Table~\\ref{tab:pi_performance}. Load-minus-baseline differences use unrounded within-run integrals before aggregation. Baseline/load windows last 60.714--60.950/139.284--140.742 s; load covers the first 300 frames. Uncalibrated sequential queries and background remain. This output rail excludes direct 5V/USB loads; it cannot supply whole-board energy or direct Jetson VDD\\_IN comparisons. YOLOv8n power is unmeasured.\\end{minipage}\n\\end{table*}",
+      "rows_latex": [
+        [
+          "P4 module",
+          "\\makecell{Unloaded baseline\\\\VDD\\_CORE W}",
+          "\\makecell{Inference load\\\\VDD\\_CORE W}",
+          "\\makecell{Within-run increment\\\\VDD\\_CORE W}"
+        ],
+        [
+          "Identity",
+          "2.051$\\pm$0.095",
+          "4.418$\\pm$0.076",
+          "2.367$\\pm$0.111"
+        ],
+        [
+          "CA",
+          "2.048$\\pm$0.037",
+          "4.452$\\pm$0.006",
+          "2.403$\\pm$0.044"
+        ],
+        [
+          "CBAM",
+          "2.056$\\pm$0.067",
+          "4.403$\\pm$0.150",
+          "2.348$\\pm$0.163"
+        ],
+        [
+          "ECA",
+          "2.035$\\pm$0.131",
+          "4.493$\\pm$0.114",
+          "2.458$\\pm$0.202"
+        ]
+      ]
+    },
+    {
+      "number": 18,
+      "page": 12,
+      "labels": [
+        "Table_8",
+        "tab:tracking_f1_cost"
+      ],
+      "caption_latex": "Same-process compact FP16 detection and online tracking costs on the fixed two-clip pair",
+      "table_block_latex": "\\begin{table*}[!tb]\n\\centering\n\\small\n\\caption{Same-process compact FP16 detection and online tracking costs on the fixed two-clip pair}\n\\label{Table_8}\\label{tab:tracking_f1_cost}\n\\setlength{\\tabcolsep}{5pt}\n\\begin{tabular}{@{}lrrrr@{}}\n\\toprule\nMode & \\makecell{Throughput\\\\frames/s} & \\makecell{Module power\\\\W} & \\makecell{Energy\\\\J/frame} & \\makecell{Throughput/power\\\\frames/s/W}\\\\\n\\midrule\nDetector only & 16.077$\\pm$0.130 & 8.403$\\pm$0.041 & 0.5227$\\pm$0.0019 & 1.913$\\pm$0.007\\\\\nDetector + SORT & 14.499$\\pm$0.101 & 8.468$\\pm$0.031 & 0.5841$\\pm$0.0028 & 1.712$\\pm$0.008\\\\\nDetector + ByteTrack & 13.030$\\pm$0.171 & 8.310$\\pm$0.041 & 0.6378$\\pm$0.0054 & 1.568$\\pm$0.013\\\\\n\\bottomrule\n\\end{tabular}\n\\par\\smallskip\\begin{minipage}{0.98\\textwidth}\\footnotesize Mean$\\pm$sample SD over three processes on distinct boots per mode, using one checkpoint and the same clips. All modes share the observed stable-tail criterion, but startup stopping rules differ. VDD\\_IN is measured in dynamic 15 W mode and includes decoding, Firefox and background activity; it is not wall-plug or isolated-tracker power. Repeats describe process variability, not training-seed, scene or device-population uncertainty.\\end{minipage}\n\\end{table*}",
+      "rows_latex": [
+        [
+          "Mode",
+          "\\makecell{Throughput\\\\frames/s}",
+          "\\makecell{Module power\\\\W}",
+          "\\makecell{Energy\\\\J/frame}",
+          "\\makecell{Throughput/power\\\\frames/s/W}"
+        ],
+        [
+          "Detector only",
+          "16.077$\\pm$0.130",
+          "8.403$\\pm$0.041",
+          "0.5227$\\pm$0.0019",
+          "1.913$\\pm$0.007"
+        ],
+        [
+          "Detector + SORT",
+          "14.499$\\pm$0.101",
+          "8.468$\\pm$0.031",
+          "0.5841$\\pm$0.0028",
+          "1.712$\\pm$0.008"
+        ],
+        [
+          "Detector + ByteTrack",
+          "13.030$\\pm$0.171",
+          "8.310$\\pm$0.041",
+          "0.6378$\\pm$0.0054",
+          "1.568$\\pm$0.013"
+        ]
+      ]
+    },
+    {
+      "number": 19,
+      "page": 13,
+      "labels": [
+        "tab:prior_scope"
+      ],
+      "caption_latex": "Methodological and evaluation scope of the earlier study and the present work.",
+      "table_block_latex": "\\begin{table*}[!tb]\n\\centering\\small\n\\caption{Methodological and evaluation scope of the earlier study and the present work.}\n\\label{tab:prior_scope}\n\\setlength{\\tabcolsep}{4pt}\n\\renewcommand{\\arraystretch}{1.08}\n\\begin{tabularx}{\\textwidth}{@{}>{\\raggedright\\arraybackslash}p{0.15\\textwidth}>{\\raggedright\\arraybackslash}X>{\\raggedright\\arraybackslash}X@{}}\n\\toprule\nAspect & Gong et al. & Present work\\\\\n\\midrule\nDetector & YOLOv4 teacher; YOLOv4-tiny-CBAM student & YOLOv7 teacher; compact/wider Ghost--ECA students\\\\\nTraining & Teacher/student: 3000/100 epochs; pseudo-label threshold 0.7 & 300 epochs per model; fixed threshold 0.5; one offline corpus\\\\\nData and budgets & Golden pompano; 4507 images: 80 labeled training, 3507 unlabeled and 920 test & Snapper/goldfish; 1188/149/149 internal split; 80/144 manual budgets; separate whole-date partition\\\\\nControlled analysis & Detector/CBAM/self-training comparisons; repeated-seed and update controls not reported & Three seeds; capacity/budget and structure controls; compact80 update-schedule controls\\\\\nTracking & SORT with MOTChallenge accuracy/identity metrics & Common-cache SORT/ByteTrack; TrackEval metrics and same-process cost measurements\\\\\nDeployment & V100 GPU throughput; edge power/memory not reported & Jetson native/TensorRT and Pi CPU; throughput, memory and separately scoped power measurements\\\\\n\\bottomrule\n\\end{tabularx}\n\\end{table*}",
+      "rows_latex": [
+        [
+          "Aspect",
+          "Gong et al.",
+          "Present work"
+        ],
+        [
+          "Detector",
+          "YOLOv4 teacher; YOLOv4-tiny-CBAM student",
+          "YOLOv7 teacher; compact/wider Ghost--ECA students"
+        ],
+        [
+          "Training",
+          "Teacher/student: 3000/100 epochs; pseudo-label threshold 0.7",
+          "300 epochs per model; fixed threshold 0.5; one offline corpus"
+        ],
+        [
+          "Data and budgets",
+          "Golden pompano; 4507 images: 80 labeled training, 3507 unlabeled and 920 test",
+          "Snapper/goldfish; 1188/149/149 internal split; 80/144 manual budgets; separate whole-date partition"
+        ],
+        [
+          "Controlled analysis",
+          "Detector/CBAM/self-training comparisons; repeated-seed and update controls not reported",
+          "Three seeds; capacity/budget and structure controls; compact80 update-schedule controls"
+        ],
+        [
+          "Tracking",
+          "SORT with MOTChallenge accuracy/identity metrics",
+          "Common-cache SORT/ByteTrack; TrackEval metrics and same-process cost measurements"
+        ],
+        [
+          "Deployment",
+          "V100 GPU throughput; edge power/memory not reported",
+          "Jetson native/TensorRT and Pi CPU; throughput, memory and separately scoped power measurements"
+        ]
+      ]
+    }
+  ]
+}

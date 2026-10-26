@@ -1,0 +1,262 @@
+{
+  "stage": "F1_explicit_startup_trace_and_uniform_stable_tail_amendment",
+  "job": "compact_b80_s101_ssl",
+  "precision": "FP16",
+  "input_size": 640,
+  "batch": 1,
+  "confidence_floor": 0.001,
+  "nms_iou": 0.65,
+  "max_det": 300,
+  "warmup_frames": 751,
+  "clip_order": [
+    "R04",
+    "R02"
+  ],
+  "clip_frame_count": 750,
+  "annotation_index_fps": 25,
+  "SORT": {
+    "max_age": 5,
+    "min_hits": 2,
+    "iou_threshold": 0.2,
+    "detection_threshold": 0.25
+  },
+  "ByteTrack": {
+    "track_high_thresh": 0.25,
+    "track_low_thresh": 0.1,
+    "new_track_thresh": 0.25,
+    "track_buffer": 30,
+    "match_thresh": 0.8,
+    "fuse_score": true
+  },
+  "byte_low_interval": "score>0.1 and score<0.25; frozen-source boundaries",
+  "packet_T0": "jetson_tracking_preflight_20261017",
+  "T0_manifest_sha256": "aba066770da2523013831ee493a864c137f510bf32ca80ae9de839ac6a1699ce",
+  "T0_report_sha256": "231419934afef709ccd51131c14f6135099dffbb797b188714514be59bbdd308",
+  "T0_boot_id": "309b4a4f-deab-4182-8cbd-00fdb0c2ece8",
+  "r2_packet": "jetson_models_cost_r2_resume01_20261017",
+  "r2_manifest_sha256": "14a589b9b583550f0016ea3ed3d992ce5d6f336f028e19c8dab0d051060f5193",
+  "excluded_boots": [
+    "77675c38-ff3c-44f0-aae5-c0b5193b63f3",
+    "bb239af9-d30c-4ec1-aa66-525bec795bb7",
+    "c67d2df2-295f-4851-8142-6e17b8062db1",
+    "6708943e-8c55-497b-9ea5-a2de9f11c457",
+    "32a22411-ff96-4e92-ba6d-5c6e22c340d2",
+    "9ccc8ae4-4423-46f7-a754-08d44be3da95",
+    "d9646486-d645-40bf-9071-2ed084604b1e",
+    "30fd8211-d9f7-4a74-86f5-49a6bc364b6e",
+    "309b4a4f-deab-4182-8cbd-00fdb0c2ece8",
+    "342c40a4-2ade-4924-b907-be5f850edcc6",
+    "8dcbe301-1c63-4f22-a4e9-62ad93566b76",
+    "00192b17-7a9e-411f-893d-83a53bd1b6bb",
+    "921e9832-207c-41b0-b1dd-357913b99838",
+    "47830d7e-b749-40e1-8ae7-140cbae92d08",
+    "cc09c6f2-ba4e-4ad9-8378-272b42cdb187",
+    "5d09a334-fb6f-4222-88c1-2a0e002bda2d",
+    "6fd7aeae-a5d8-4838-a06d-cf7fefe49de9"
+  ],
+  "GT_folder": "R04_R02_tracking_GT_v3_20261015",
+  "GT_manifest_sha256": "afb31f3b9fac4d8373a1b5e8112ab4349285f9f3dfd4ba44a7329c6d133d1887",
+  "weight_sha256": "a6f7bf3e8e2ac12354de1394fb6c275d8f84d3f96b2f379507d5aad4afd52537",
+  "source_bundle_manifest_sha256": "a8e8e49b9589046559a2e4a216dce4c0194ac82b0dd9e21f5758b190322ead6d",
+  "first_frame_gate_bytes": 3221225472,
+  "runtime_gate_bytes": 1073741824,
+  "quiet_seconds": 600,
+  "GT_used_by_detector": false,
+  "GT_used_by_tracker": false,
+  "formal_metrics_generated": false,
+  "source_derivation": "SORT class/function AST preserved, plotting/demo imports removed; ByteTrack core preserved, standalone ndarray utilities and no-auto-install imports only",
+  "tracker_hyperparameter_selection": "frozen historical SORT and delivered ByteTrack defaults, no R04/R02 GT tuning",
+  "MOT_GT_visibility": "unknown=-1; binary occluded stored separately, never fabricated as a fraction",
+  "tracking_metric_computation_authorized": false,
+  "power_measurement_authorized": true,
+  "automatic_retries": false,
+  "attempt": "f1_steady01",
+  "reuses_CPU_from": "tracking_cpu_probe_20261017_01",
+  "accepted_CPU_report_sha256": "79fac5a7cb74fde812889e4fac5c9e13adafcc24eb3c7adff7f0e039cbf781b9",
+  "original_T1_packet": "jetson_tracking_t1_20261017",
+  "original_T1_manifest_sha256": "0101e0d6d32e3b353881dfac5cf80154a53751fd99ec6eecfaac3c3ee660f30c",
+  "unchanged_CPU_source_sha256": {
+    "mot_adapter.py": "9f41796d7886a6fd27df906e6266ac75679d2f0415b42271fab58a29770a52a8",
+    "sort_core.py": "c9cdb032f5f6a645867735d043c3b5851b8db270ac3b93a9a93e0318b9e19d9b",
+    "source_originals/basetrack.py": "d9c0598a0c6dc4c803d242301d887dfd621442c34ed11e4420f78a58deefb97f",
+    "source_originals/byte_tracker.py": "bfcd7cabba9617fd09f3bb296b5a9e9434f25cd880707a7782a01428509132bd",
+    "source_originals/kalman_filter.py": "0eb83339f3f8ddbe1e18064e8d9331cbedbecc7ee91af1ba03aa3a8a1670f99c",
+    "source_originals/matching.py": "ae33ba235cd2cc72008de2e58c54626e0e59b54351e47a423cc29013b2aabe5b",
+    "source_originals/metrics.py": "8eb05b2ddcd8a8237a0d70645a5a25f326bf6192858c3a89ee3ee9521ff79bbd",
+    "source_originals/ops.py": "ae25ae5332497169e357f2152eaf1edca03d4412594a72fd0086b06aedc03f28",
+    "source_originals/sort.py": "b03e37b02682a7481ca17adc20083c607ecf486973a9aab15a7c605725728939",
+    "source_originals/stracks.py": "1d4e69db3003c90e122e70f3cdfae67d4709bbb7e8cdd93ceba432eb61c3e685",
+    "t1_vendor/__init__.py": "4399a0f4a18e6b60261bdf2ab6a26a594655d88415420cf742a03709ec1bb000",
+    "t1_vendor/bytetrack/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "t1_vendor/bytetrack/basetrack.py": "d9c0598a0c6dc4c803d242301d887dfd621442c34ed11e4420f78a58deefb97f",
+    "t1_vendor/bytetrack/byte_tracker.py": "dbdde6cf01e2c06fa7dac439693efb0598d0d016d5a840cf18b1a870845469ab",
+    "t1_vendor/bytetrack/utils/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "t1_vendor/bytetrack/utils/kalman_filter.py": "0eb83339f3f8ddbe1e18064e8d9331cbedbecc7ee91af1ba03aa3a8a1670f99c",
+    "t1_vendor/bytetrack/utils/matching.py": "78c63f848fb77d1eb2fc7de237913a2d4caee9245892b61457b51edeb77fab6a",
+    "t1_vendor/bytetrack/utils/stracks.py": "1d4e69db3003c90e122e70f3cdfae67d4709bbb7e8cdd93ceba432eb61c3e685",
+    "t1_vendor/metrics.py": "be73ded36168a673e8cafc04b43cbc7d274541c6cb00f2bec8313037c3a4a74c",
+    "t1_vendor/ops.py": "7cb6dfe0b3fe08cd46ae2079d1d57eae4fdb6d879d11d7b51fc99c1ad23485f7",
+    "tracker_adapter.py": "29f139e2064764a0b0690c07a59ebf0cc96feec3c5262a4f46bbf1a5f8ea4db1"
+  },
+  "output_validation": "6 finite fields; native xyxy bounds;0.001<=score<=1;class0;max300;zero area logged separately",
+  "correction": "T1-only low-score validator replaces inherited confidence>0.25 validator; original C1/R2 sources unchanged",
+  "original_T1_short_packet": "jetson_tracking_t1_retry02_cpu_20261017",
+  "original_T1_short_manifest_sha256": "4ff23857c0e5d9046c45b2b3e4dbba4272d3337110f9c8887d6ca46956f6af83",
+  "accepted_T1_replay_report_sha256": "d5dbf482470e3494deb11626e83e7f9e5240e628c209a78a915c5a79f8a2c7e3",
+  "accepted_T1_cache_reuse_report_sha256": "c1f368b0d2177069f91a54be3e26516f2586da91af7c34aea31effbfb1453ba8",
+  "accepted_prior_CPU_reuse_report_sha256": "509818a53c02c6fe87975319fc06c6d5bba12c69cbe5373232fa7ad444e43b80",
+  "accepted_prior_GPU_worker_report_sha256": "b84bc310dfbe3ac16f68de37638e2ca0909ee1899caf2efcf2254c700c100bfd",
+  "prior_GPU_packet": "jetson_tracking_t1_retry01_20261017",
+  "prior_GPU_manifest_sha256": "c9c2eb24ebd071891c83a5034c90a23c1603a957029f479565528363cbd02261",
+  "annotation_or_threshold_changes_authorized": false,
+  "full_clip_zero_output_is_valid": true,
+  "future_CPU_evaluation_plan": {
+    "status": "completed_by_main_window_on_accepted_T2_originals_before_F1",
+    "metrics": [
+      "MOTA",
+      "MOTP",
+      "IDF1",
+      "IDSW",
+      "FP",
+      "FN",
+      "Frag"
+    ],
+    "match_IoU": 0.5,
+    "metrics_backend": "official TrackEval CLEAR and Identity",
+    "MOTP_definition": "mean IoU of matched boxes; higher better; no-match value0 with explicit note",
+    "sequence_aggregation": "official combine_sequences, not arithmetic mean of percentages",
+    "GT_class_code": 1,
+    "GT_class_semantics": "fish, not pedestrian",
+    "GT_mark": 1,
+    "visibility_filter": false,
+    "ignore_strategy": "none: all2415 frozen visible fish boxes; Outside absent; occluded retained; unknown visibility=-1",
+    "no_confidence_postfilter_on_tracker_outputs": true,
+    "empty_prediction_files_valid": true,
+    "negative_MOTA_valid": true,
+    "outputs": "per sequence and official combined; no formal accuracy claimed before evaluator validation and actual full returns",
+    "code_freeze_required_before_official_metric_computation": true,
+    "source_urls": [
+      "https://github.com/JonathonLuiten/TrackEval/blob/master/trackeval/metrics/clear.py",
+      "https://github.com/JonathonLuiten/TrackEval/blob/master/trackeval/metrics/identity.py",
+      "https://github.com/JonathonLuiten/TrackEval/blob/master/trackeval/datasets/mot_challenge_2d_box.py"
+    ],
+    "actual_metrics_sha256": "1f9fa9188184b0ddf362e22f49307cf0dceb6b09186fc6ecf80130cbea509d5e"
+  },
+  "mode_order": [
+    "detector_only",
+    "SORT",
+    "ByteTrack"
+  ],
+  "accepted_T2_packet": "jetson_tracking_t2_full_20261017",
+  "accepted_T2_manifest_sha256": "f83ea7b101d4383aed6a5c92f707d81ed22063165484db93246306303f6904da",
+  "accepted_T2_worker_report_sha256": "fa1551819cd523f7783b4c88eb0c7f024bf9f7c75ee326a6981aa27f6f19ee47",
+  "accepted_T2_replay_report_sha256": "60e1d45ccb71c97c3ac3180604fe3950946e5232776c702b9bced943f0c76ebb",
+  "accepted_T2_launcher_report_sha256": "e40c48eff31765bab270ca598d7b24ce7ea2df3f6e87611f769234486ca113ae",
+  "official_tracking_metrics_sha256": "1f9fa9188184b0ddf362e22f49307cf0dceb6b09186fc6ecf80130cbea509d5e",
+  "CPU_tracking_same_process_as_detector": true,
+  "formal_FPS_authorized": true,
+  "schedule": [
+    {
+      "mode": "detector_only",
+      "replicate": 1
+    },
+    {
+      "mode": "SORT",
+      "replicate": 1
+    },
+    {
+      "mode": "ByteTrack",
+      "replicate": 1
+    },
+    {
+      "mode": "SORT",
+      "replicate": 2
+    },
+    {
+      "mode": "ByteTrack",
+      "replicate": 2
+    },
+    {
+      "mode": "detector_only",
+      "replicate": 2
+    },
+    {
+      "mode": "ByteTrack",
+      "replicate": 3
+    },
+    {
+      "mode": "detector_only",
+      "replicate": 3
+    },
+    {
+      "mode": "SORT",
+      "replicate": 3
+    }
+  ],
+  "separate_T3_probe_cancelled_by_user": true,
+  "warmup_integrated_compatibility_gate": true,
+  "measurement_pair_frames": 1500,
+  "warmup_minimum_seconds": 60,
+  "loaded_idle_seconds": 60,
+  "measurement_minimum_seconds": 60,
+  "source_protocol": "native_pair_complete_passes_online_tracking_v1",
+  "newboot_per_item": true,
+  "original_model_runtime_sha256": "c76158ca97d5cd34ee1d9742bd7752d0636bc23c9da222009b5d92199e6126e9",
+  "warmup_must_observe_clips": [
+    "R04",
+    "R02"
+  ],
+  "warmup_compatibility_failure_stops_before_measurement": true,
+  "expected_actual_forwards": "Actual warmup frames plus complete1500-frame measured passes; not the archived T1/T3 count230",
+  "measurement_scope": "Native pair decode + qualified FP16 detector + immediate same-process tracker if selected + output conversion and record flush; no render/encode/camera",
+  "online_native_dependencies": "Compare versions and origins exactly to accepted T1 CPU report; no installation",
+  "archived_retry_authorization_unused": true,
+  "warmup_minimum_frames": 751,
+  "warmup_maximum_seconds": 300,
+  "original_F1_packet": "jetson_tracking_cost_f1_20261017",
+  "original_F1_manifest_sha256": "9e4fe52b5643f8845e55de17ddb92c956aad7ebfc94d29bca3dc1d32749a42cd",
+  "accepted_original_prefix": [
+    {
+      "mode": "detector_only",
+      "replicate": 1
+    },
+    {
+      "mode": "SORT",
+      "replicate": 1
+    }
+  ],
+  "failed_original_boot": "cc09c6f2-ba4e-4ad9-8378-272b42cdb187",
+  "warmup_rule": "Both >=60s AND >=751 actual native frames; retain the two-clip forward/update/reset gate before measurement.",
+  "resume01_packet": "jetson_tracking_cost_f1_resume01_20261018",
+  "resume01_manifest_sha256": "4432415226a959b1a66cc51d0016cb47b4b616ae22f9596ef6275b7213caa427",
+  "accepted_resume01_prefix": [
+    {
+      "mode": "ByteTrack",
+      "replicate": 1
+    },
+    {
+      "mode": "SORT",
+      "replicate": 2
+    },
+    {
+      "mode": "ByteTrack",
+      "replicate": 2
+    }
+  ],
+  "failed_resume01_boot": "5d09a334-fb6f-4222-88c1-2a0e002bda2d",
+  "maximum_authorized_replacements_for_D2_current_failure": 1,
+  "repeated_guard_failure_policy": "stop batch and return all evidence; no automatic reattempts",
+  "superseded_unused_token": "detector_only_20261018_02_f1_resume02",
+  "preupload_incident_source": "user_report; original local return pending; board preflight checks mandatory",
+  "reissue_consumes_D2_measurement_replacement": false,
+  "startup_policy": "startup_trace_stable30_formal_two_intervals_v1",
+  "stable_tail_seconds": 30,
+  "startup_swap_termination": "recorded, not a paging-latch stop before formal activation",
+  "runtime_capacity_bytes": 1073741824,
+  "global_oom_change_stops": true,
+  "formal_swap_termination": "original2 consecutive effective intervals",
+  "retained5_requalified": true,
+  "execution_revision_disclosure_required": true,
+  "old_failures_retained_not_reclassified": true,
+  "one_new_amended_attempt_per_remaining_item": true
+}

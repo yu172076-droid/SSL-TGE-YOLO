@@ -1,0 +1,5 @@
+row,cell_1,cell_2,cell_3,cell_4,cell_5,cell_6,cell_7
+1,Model,\makecell{Val\\AP50(\%)},\makecell{Val\\AP50:95(\%)},\makecell{Internal test\\AP50(\%)},\makecell{Internal test\\AP50:95(\%)},\makecell{Val $\Delta$\\AP50(pp)},\makecell{Val $\Delta$\\AP50:95(pp)}
+2,compact SSL,90.1520,62.3077,86.1097,55.7489,+0.0464,+0.0644
+3,YOLOv8n manual-only,76.1807,45.9025,79.1546,45.2732,-0.3594,+0.1441
+4,YOLOv8n SSL,89.5307,63.1383,87.5476,58.5033,+0.0193,+0.0596

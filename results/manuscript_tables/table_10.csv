@@ -1,0 +1,8 @@
+row,cell_1,cell_2,cell_3,cell_4,cell_5
+1,Model,\makecell{Throughput\\frames/s},\makecell{Mean forward\\ms},\makecell{Window peak RSS\\MiB},\makecell{Lifetime VmHWM\\MiB}
+2,Identity,2.164$\pm$0.002,417.25$\pm$0.44,408.02$\pm$0.39,408.02$\pm$0.39
+3,CA,2.153$\pm$0.005,419.28$\pm$0.95,408.78$\pm$1.32,408.78$\pm$1.32
+4,CBAM,2.155$\pm$0.003,419.45$\pm$0.70,409.55$\pm$1.26,409.55$\pm$1.26
+5,ECA / compact SSL,2.152$\pm$0.011,419.95$\pm$2.07,407.07$\pm$1.04,407.07$\pm$1.04
+6,YOLOv8n manual-only,3.211$\pm$0.024,267.42$\pm$2.42,385.76$\pm$0.98,403.49$\pm$1.02
+7,YOLOv8n SSL,3.212$\pm$0.019,267.19$\pm$0.74,392.45$\pm$12.45,404.35$\pm$2.15

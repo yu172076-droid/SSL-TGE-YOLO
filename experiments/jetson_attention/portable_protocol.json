@@ -1,0 +1,237 @@
+{
+  "protocol": "ATF1_integrated_four_attention_native_FP16_cost_n3_and_FP32_FP16_common_AP_v1",
+  "client_date": "2026-10-20",
+  "attention_directory": "jetson_attention_b80_s101_20261020",
+  "attention_manifest_sha256": "9528e8f91af8960116618adc2e60628835615c27e0ab6db51ac2edf463e643f5",
+  "ECA_bundle_directory": "jetson_models_b80_s101_20261013",
+  "ECA_bundle_manifest_sha256": "a8e8e49b9589046559a2e4a216dce4c0194ac82b0dd9e21f5758b190322ead6d",
+  "accuracy_directory": "jetson_models_accuracy_20261014",
+  "accuracy_manifest_sha256": "b1c8cf960cf6a231de0131596501fedb73b9609704560a39575892642b3b5bea",
+  "dataset_manifest_sha256": "87c467257aad60fb15d45cd6a48a9402cc0b74f7c6696500dd5ccda166c2e980",
+  "val_inputs_directory": "jetson_deployment_inputs_20261009",
+  "val_input_manifest_sha256": "d1e04100fae1cd94e9847482fd41808179b20c343131f5f64c34ae39d6d2e39d",
+  "GT_sha256": {
+    "val": "02fc22eafb51839f6210f7feddefcff2d42cd428b7d891779d30af20fe953c57",
+    "test": "af93fdaabc7376803256d08771bb0507eb904bf2bf2e70e45c79713c6684430a"
+  },
+  "models": [
+    {
+      "id": "identity",
+      "display": "Identity",
+      "backend": "v7",
+      "weight_relative": "jobs/compact_p4_none_b80_s101_ssl/attempt_01/train/weights/last.pt",
+      "weight_sha256": "29c7941034b0862d5e94e880b6b39956d23d4a4a31a992fa7aa49d9336c558db",
+      "parameters": 4958804,
+      "module_parameters": 0,
+      "architecture_evidence": "jobs/compact_p4_none_b80_s101_ssl/attempt_01/architecture_evidence.json",
+      "config_relative": "configs/compact_p4_none.yaml",
+      "output_name": "atf1_ap_identity_20261020_01"
+    },
+    {
+      "id": "ca",
+      "display": "CA",
+      "backend": "v7",
+      "weight_relative": "jobs/compact_p4_ca_b80_s101_ssl/attempt_01/train/weights/last.pt",
+      "weight_sha256": "0269e55aefd25ee35013fd77a2ca9048fa56028ae9c4a7096c5f50b620a6b14f",
+      "parameters": 4962148,
+      "module_parameters": 3344,
+      "architecture_evidence": "jobs/compact_p4_ca_b80_s101_ssl/attempt_01/architecture_evidence.json",
+      "config_relative": "configs/compact_p4_ca.yaml",
+      "output_name": "atf1_ap_ca_20261020_01"
+    },
+    {
+      "id": "cbam",
+      "display": "CBAM",
+      "backend": "v7",
+      "weight_relative": "jobs/compact_p4_cbam_b80_s101_ssl/attempt_01/train/weights/last.pt",
+      "weight_sha256": "1026780e204b83630010f5d1d908ece44248551b1b769b9580ad09da98dc95ce",
+      "parameters": 4960950,
+      "module_parameters": 2146,
+      "architecture_evidence": "jobs/compact_p4_cbam_b80_s101_ssl/attempt_01/architecture_evidence.json",
+      "config_relative": "configs/compact_p4_cbam.yaml",
+      "output_name": "atf1_ap_cbam_20261020_01"
+    },
+    {
+      "id": "eca",
+      "display": "ECA",
+      "backend": "v7",
+      "weight_relative": "models/compact_b80_s101_ssl/last.pt",
+      "weight_sha256": "a6f7bf3e8e2ac12354de1394fb6c275d8f84d3f96b2f379507d5aad4afd52537",
+      "parameters": 4958807,
+      "module_parameters": 3,
+      "output_name": "atf1_ap_eca_20261020_01"
+    }
+  ],
+  "video_relative": "video_candidate_20261012/source125909_req2425s_60s_4K_copy_candidate.mp4",
+  "video_sha256": "4afea89a7cea7a2385be6a995bdf72eb4da6a73cc7c42547cceb791c66ba0510",
+  "seed": 101,
+  "budget": 80,
+  "epochs": 300,
+  "checkpoint": "last.pt",
+  "P4_channels": 128,
+  "head_channels": [
+    128,
+    128,
+    512
+  ],
+  "qualified_C1_sha256": "e38ec3d77a8f6dadf887a1fd5628470fcd97df4fe48563fc14dd697246a201bd",
+  "source_module_parameters_role": "Verified from checkpoint at load; no local deserialization was performed",
+  "runtime_flags": {
+    "torch_num_threads": 6,
+    "opencv_num_threads": 1,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false,
+    "cudnn_allow_tf32": true,
+    "cuda_matmul_allow_tf32": false
+  },
+  "images": {
+    "precisions": [
+      "FP32",
+      "FP16"
+    ],
+    "compatibility_ids": [],
+    "compatibility_conf": 0.25,
+    "val": 149,
+    "test": 149,
+    "AP_conf_floor": 0.001,
+    "NMS_IoU": 0.65,
+    "max_det": 300
+  },
+  "short_video": {
+    "standalone_run_authorized": false
+  },
+  "startup": {
+    "quiet_min_s": 600,
+    "quiet_cap_s": 900,
+    "quiet_role": "AP subprocesses have no additional quiet session; formal costs use600s/stable30",
+    "stable_tail_s": 30,
+    "preload_bytes": 3221225472,
+    "before_decode_bytes": 3246108672,
+    "first_native_bytes": 3221225472,
+    "runtime_bytes": 1073741824,
+    "aggregate_capacity_wait_cap_s": 180,
+    "diagnostic_settle_cap_s": 180,
+    "child_watchdog_s": 900,
+    "startup_swap_recorded_not_fatal_until_protected_activation": true,
+    "OOM_change_always_fatal": true,
+    "protected_diagnostic_stop": "two consecutive effective global paging intervals",
+    "legacy_formal_activation_name_is_not_a_cost_window": true,
+    "normal_new_boot_per_formal_item": true,
+    "formal_cost_child_watchdog_s": 1200,
+    "AP_child_watchdog_s": 900
+  },
+  "planned": {
+    "formal_cost_sessions": 12,
+    "common_prediction_processes": 8,
+    "common_prediction_forwards": 2384,
+    "standalone_compatibility_forwards": 0,
+    "standalone_short_video_forwards": 0
+  },
+  "assertions": {
+    "AP_evaluated": false,
+    "formal_cost_completed": false,
+    "video_FPS_measured": false,
+    "power_measured": false
+  },
+  "val_engineering_gate": {
+    "AP50_max_drop": 0.005,
+    "AP50_95_max_drop": 0.005,
+    "test_used_for_selection": false
+  },
+  "scope": "Formal native FP16 costs plus same-boot separate-process FP32/FP16 common predictions after rep01 root/binder closed; CPU AP reviewed after full collection.",
+  "stage": "formal_cost_collection_with_precision_review_pending",
+  "capacity_policy": "AT_native_preload3GiB_firstframe3GiB_runtime1GiB_v1",
+  "predecoder_min_bytes": 3246108672,
+  "first_frame_min_bytes": 3221225472,
+  "handoff_policy": "warmup_full_EOF_close_flush_fresh_sample_atomic_activation_v1",
+  "schedule": [
+    {
+      "slot": 1,
+      "model": "identity",
+      "replicate": 1
+    },
+    {
+      "slot": 2,
+      "model": "ca",
+      "replicate": 1
+    },
+    {
+      "slot": 3,
+      "model": "cbam",
+      "replicate": 1
+    },
+    {
+      "slot": 4,
+      "model": "eca",
+      "replicate": 1
+    },
+    {
+      "slot": 5,
+      "model": "ca",
+      "replicate": 2
+    },
+    {
+      "slot": 6,
+      "model": "cbam",
+      "replicate": 2
+    },
+    {
+      "slot": 7,
+      "model": "eca",
+      "replicate": 2
+    },
+    {
+      "slot": 8,
+      "model": "identity",
+      "replicate": 2
+    },
+    {
+      "slot": 9,
+      "model": "cbam",
+      "replicate": 3
+    },
+    {
+      "slot": 10,
+      "model": "eca",
+      "replicate": 3
+    },
+    {
+      "slot": 11,
+      "model": "identity",
+      "replicate": 3
+    },
+    {
+      "slot": 12,
+      "model": "ca",
+      "replicate": 3
+    }
+  ],
+  "cost_quiet_min_s": 600,
+  "cost_quiet_max_s": 900,
+  "AP_review_before_cost_required": false,
+  "AP_gate_pending_until_main_CPU_review": true,
+  "test_used_for_selection": false,
+  "formal_cost": {
+    "precision": "FP16",
+    "batch": 1,
+    "input_shape": [
+      1,
+      3,
+      640,
+      640
+    ],
+    "confidence": 0.25,
+    "NMS_IoU": 0.65,
+    "max_det": 300,
+    "loaded_idle_s": 60,
+    "warmup_min_s": 60,
+    "warmup_cap_s": 300,
+    "warmup_requires_full_EOF": true,
+    "measurement_min_s": 60,
+    "measurement_cap_s": 600,
+    "measurement_requires_full_EOF": true,
+    "root_sampler_cap_s": 1800,
+    "output_scope": "native video decode+preprocess+CUDA forward+FP32 NMS+CPU detection conversion+validation/logging; no render/save/track",
+    "CPU_AP_after_all_collection": true
+  }
+}

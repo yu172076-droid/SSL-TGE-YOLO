@@ -1,0 +1,5 @@
+row,cell_1,cell_2,cell_3,cell_4,cell_5
+1,Training,\makecell{Val\\AP50},\makecell{Val\\AP50:95},\makecell{Internal\\test AP50},\makecell{Internal\\test AP50:95}
+2,Manual only,51.07$\pm$3.27,23.58$\pm$1.87,59.06$\pm$0.15,27.05$\pm$1.11
+3,Manual repetition,84.21$\pm$1.46,52.60$\pm$0.95,82.93$\pm$0.09,50.09$\pm$0.83
+4,Offline SSL,90.03$\pm$1.95,61.01$\pm$2.14,87.94$\pm$1.99,56.51$\pm$1.06

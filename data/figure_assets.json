@@ -1,0 +1,91 @@
+{
+  "source_tex_sha256": "6b6c939d99216f8cd4a71d78e48c8c22978c476edd943fecda3fc324096bb1d7",
+  "figures": [
+    {
+      "figure": 1,
+      "files": [
+        {
+          "file": "yj.pdf",
+          "sha256": "2c2e25e00c0bdae6f3d63fd10d6666ddfb980e610c36951b5044546f35eadc4b"
+        }
+      ]
+    },
+    {
+      "figure": 2,
+      "files": [
+        {
+          "file": "目标检测数据集.pdf",
+          "sha256": "f93f1fb40ebabf61d9b40ca6aa81468e770e83757206575c4f8c777aea6fc5d9"
+        },
+        {
+          "file": "跟踪数据集.pdf",
+          "sha256": "a128a4294b08684270cf4ccdce63726699712c6552d260433dae2a81ee166cb8"
+        }
+      ]
+    },
+    {
+      "figure": 3,
+      "files": [
+        {
+          "file": "123.pdf",
+          "sha256": "76dbd3aac74b2fb63c21287f5b0cabda2d0af13dae9389d0fc265f3048bc2783"
+        }
+      ]
+    },
+    {
+      "figure": 4,
+      "files": [
+        {
+          "file": "Figure4_sensor_API_schematic_20261026.pdf",
+          "sha256": "d40b5920bbef793bff25617cc5885871c1472e964abffb605c3f7ac91e4e5383"
+        }
+      ]
+    },
+    {
+      "figure": 5,
+      "files": [
+        {
+          "file": "Figure5_TGE_color_review_vector_20261024.pdf",
+          "sha256": "d58203c390d3baf33b5a13960d2c6a63bfd23fd12d84b029a004030331936414"
+        }
+      ]
+    },
+    {
+      "figure": 6,
+      "files": [
+        {
+          "file": "PR80_internal_test_mean.pdf",
+          "sha256": "edb510502600e30c6312e954b38a2558babdec6f8e7148062125ad6346907882"
+        }
+      ]
+    },
+    {
+      "figure": 7,
+      "files": [
+        {
+          "file": "tracking_R04_R02_GT_SORT_ByteTrack_compact.pdf",
+          "sha256": "9a9df6fff4755818014fb19e11b89f161c1d599f2dbf55edc18659d41eb3718f"
+        }
+      ]
+    },
+    {
+      "figure": 8,
+      "files": [
+        {
+          "file": "pseudo_training_threshold05_compact.pdf",
+          "sha256": "ea511bf6ca4c49f5858e65aad1d5c5754c9b4fdccf9f58487a7a6ead3e3e0782"
+        }
+      ]
+    },
+    {
+      "figure": 9,
+      "files": [
+        {
+          "file": "dayholdout_systematic_examples_compact.pdf",
+          "sha256": "0fef49eb890784b91e6263632f220c2062354ce412fe330367d79b31b06aac55"
+        }
+      ]
+    }
+  ],
+  "note": "Macro placeholders are excluded. Figure 4 is the approved schematic, not the historical screenshot."
+}

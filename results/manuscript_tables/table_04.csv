@@ -1,0 +1,11 @@
+row,cell_1,cell_2,cell_3,cell_4,cell_5,cell_6,cell_7
+1,Condition,Ghost stages,\makecell{Total\\parameters},\makecell{Val\\AP50},\makecell{Val\\AP50:95},\makecell{Internal\\test AP50},\makecell{Internal\\test AP50:95}
+2,\multicolumn{7}{l}{(a) Stage coverage; ECA at P4},,,,,,
+3,0\% (standard),None,"8,758,703",89.21$\pm$1.66,60.44$\pm$1.79,87.75$\pm$2.12,56.68$\pm$2.12
+4,50\% early,"P2, P3","8,460,887",88.63$\pm$2.26,60.56$\pm$1.66,87.54$\pm$2.56,56.53$\pm$1.56
+5,50\% deep,"P4, P5","5,256,623",89.30$\pm$2.32,60.39$\pm$1.19,87.54$\pm$1.66,56.16$\pm$1.53
+6,100\% reference,P2--P5,"4,958,807",90.03$\pm$1.95,61.01$\pm$2.14,87.94$\pm$1.99,56.51$\pm$1.06
+7,\multicolumn{7}{l}{(b) ECA gate position; full Ghost stages},,,,,,
+8,P3,P2--P5,"4,958,807",88.66$\pm$1.95,60.49$\pm$1.73,87.23$\pm$2.67,55.68$\pm$2.58
+9,P4 reference,P2--P5,"4,958,807",90.03$\pm$1.95,61.01$\pm$2.14,87.94$\pm$1.99,56.51$\pm$1.06
+10,P5,P2--P5,"4,958,807",90.23$\pm$1.51,61.16$\pm$1.56,87.52$\pm$2.29,55.73$\pm$2.44

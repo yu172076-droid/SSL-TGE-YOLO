@@ -1,0 +1,6 @@
+row,cell_1,cell_2,cell_3,cell_4,cell_5,cell_6,cell_7
+1,P4 module,\makecell{Module\\parameters},\makecell{Total\\parameters},\makecell{Val\\AP50},\makecell{Val\\AP50:95},\makecell{Internal\\test AP50},\makecell{Internal\\test AP50:95}
+2,ECA reference,3,"4,958,807",90.03$\pm$1.95,61.01$\pm$2.14,87.94$\pm$1.99,56.51$\pm$1.06
+3,Identity (no attention),0,"4,958,804",89.30$\pm$1.55,59.96$\pm$1.58,87.93$\pm$1.84,56.14$\pm$1.65
+4,Pure CA,"3,344","4,962,148",88.53$\pm$2.00,60.30$\pm$1.86,86.40$\pm$3.52,54.66$\pm$2.76
+5,Pure CBAM,"2,146","4,960,950",88.51$\pm$2.39,59.67$\pm$1.65,87.07$\pm$3.01,55.74$\pm$2.46

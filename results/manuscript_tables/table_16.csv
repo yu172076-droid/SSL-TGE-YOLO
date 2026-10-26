@@ -1,0 +1,6 @@
+row,cell_1,cell_2,cell_3,cell_4,cell_5,cell_6
+1,P4 module,\makecell{CUDA forward\\ms},\makecell{Window RSS\\MiB},\makecell{Throughput\\frames/s},\makecell{Module power\\W},\makecell{Module energy\\J/frame}
+2,Identity,35.47$\pm$0.44,3842.7$\pm$0.5,16.019$\pm$0.128,8.297$\pm$0.017,0.5180$\pm$0.0031
+3,CA,36.28$\pm$0.20,3850.9$\pm$4.5,15.914$\pm$0.126,8.303$\pm$0.020,0.5218$\pm$0.0029
+4,CBAM,36.19$\pm$1.11,3852.6$\pm$13.9,15.940$\pm$0.327,8.305$\pm$0.041,0.5211$\pm$0.0081
+5,ECA,35.53$\pm$0.24,3849.9$\pm$1.5,16.050$\pm$0.106,8.307$\pm$0.014,0.5176$\pm$0.0026

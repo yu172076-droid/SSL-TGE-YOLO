@@ -1,0 +1,5 @@
+row,cell_1,cell_2,cell_3,cell_4,cell_5
+1,Mode,\makecell{Throughput\\frames/s},\makecell{Module power\\W},\makecell{Energy\\J/frame},\makecell{Throughput/power\\frames/s/W}
+2,Detector only,16.077$\pm$0.130,8.403$\pm$0.041,0.5227$\pm$0.0019,1.913$\pm$0.007
+3,Detector + SORT,14.499$\pm$0.101,8.468$\pm$0.031,0.5841$\pm$0.0028,1.712$\pm$0.008
+4,Detector + ByteTrack,13.030$\pm$0.171,8.310$\pm$0.041,0.6378$\pm$0.0054,1.568$\pm$0.013

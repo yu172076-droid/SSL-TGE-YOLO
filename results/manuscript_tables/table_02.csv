@@ -1,0 +1,10 @@
+row,cell_1,cell_2
+1,Component,Setting
+2,Training,300 epochs; seeds 101/202/303; FP32; $640\times640$ input; teacher/student batch sizes 4/8.
+3,Optimizer,"SGD; initial learning rate 0.01, final factor 0.01, momentum 0.937, weight decay $5\times10^{-4}$; cosine scheduling."
+4,Augmentation,"Mosaic/mixup probabilities 1.0/0.05; native framework losses, scaling and warm-up, including YOLOv7's minimum 1000 warm-up batches."
+5,Detector evaluation,Square letterboxing; FP32; confidence floor 0.001; NMS IoU 0.65; model maxDet 300 and COCO maxDets 100.
+6,Jetson,One Orin Nano Super 8 GB; 15 W dynamic clocks; Ubuntu 20.04.6/L4T R35.6.4; native PyTorch FP16 or TensorRT 8.5.2.2.
+7,Raspberry Pi,"One Pi~5 Model B 8 GB; Debian 13/aarch64; Python 3.13.5; ONNX Runtime 1.23.2 CPU FP32; four intra-op/one inter-op threads, spinning disabled, one OpenCV thread."
+8,Detector cost input,"The same 1475-frame 3840$\times$2160 file; batch 1, input 640, confidence 0.25, NMS IoU 0.65, maxDet 300. Jetson uses full-file passes; Pi uses the first 300 frames."
+9,Tracking input,"R04/R02: 750 frames each, 26/19 trajectories and 1188/1227 visible GT boxes. Quality includes all frames and empty GT/predictions; the cost workload concatenates both clips (1500 frames)."

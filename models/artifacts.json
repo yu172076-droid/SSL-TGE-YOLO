@@ -1,0 +1,65 @@
+{
+  "models": [
+    {
+      "id": "compact_p4_cbam_b80_s101_ssl",
+      "file": "compact_p4_cbam_b80_s101_ssl/last.pt",
+      "bytes": 10345933,
+      "sha256": "1026780e204b83630010f5d1d908ece44248551b1b769b9580ad09da98dc95ce",
+      "checkpoint_rule": "fixed final checkpoint",
+      "seed": 101,
+      "upstream": "YOLOv7-derived model",
+      "format": "PyTorch pickle checkpoint; load only trusted checkpoints in a compatible isolated environment"
+    },
+    {
+      "id": "compact_p4_ca_b80_s101_ssl",
+      "file": "compact_p4_ca_b80_s101_ssl/last.pt",
+      "bytes": 10348970,
+      "sha256": "0269e55aefd25ee35013fd77a2ca9048fa56028ae9c4a7096c5f50b620a6b14f",
+      "checkpoint_rule": "fixed final checkpoint",
+      "seed": 101,
+      "upstream": "YOLOv7-derived model",
+      "format": "PyTorch pickle checkpoint; load only trusted checkpoints in a compatible isolated environment"
+    },
+    {
+      "id": "compact_p4_none_b80_s101_ssl",
+      "file": "compact_p4_none_b80_s101_ssl/last.pt",
+      "bytes": 10338140,
+      "sha256": "29c7941034b0862d5e94e880b6b39956d23d4a4a31a992fa7aa49d9336c558db",
+      "checkpoint_rule": "fixed final checkpoint",
+      "seed": 101,
+      "upstream": "YOLOv7-derived model",
+      "format": "PyTorch pickle checkpoint; load only trusted checkpoints in a compatible isolated environment"
+    },
+    {
+      "id": "v8n_b80_s101_supervised",
+      "file": "v8n_b80_s101_supervised/last.pt",
+      "bytes": 6260579,
+      "sha256": "00e9f32bd651a7239a96cb7c2606e59fc7cb1ffa224552610be40ce4628fd63c",
+      "checkpoint_rule": "fixed final checkpoint",
+      "seed": 101,
+      "upstream": "Ultralytics-derived model",
+      "format": "PyTorch pickle checkpoint; load only trusted checkpoints in a compatible isolated environment"
+    },
+    {
+      "id": "compact_b80_s101_ssl",
+      "file": "compact_b80_s101_ssl/last.pt",
+      "bytes": 10339351,
+      "sha256": "a6f7bf3e8e2ac12354de1394fb6c275d8f84d3f96b2f379507d5aad4afd52537",
+      "checkpoint_rule": "fixed final checkpoint",
+      "seed": 101,
+      "upstream": "YOLOv7-derived model",
+      "format": "PyTorch pickle checkpoint; load only trusted checkpoints in a compatible isolated environment"
+    },
+    {
+      "id": "v8n_b80_s101_ssl",
+      "file": "v8n_b80_s101_ssl/last.pt",
+      "bytes": 6260515,
+      "sha256": "4fdcfdc91a6724ba202b015b4abc07ca23e5040dbcbcda33d67c116f7eb7a9be",
+      "checkpoint_rule": "fixed final checkpoint",
+      "seed": 101,
+      "upstream": "Ultralytics-derived model",
+      "format": "PyTorch pickle checkpoint; load only trusted checkpoints in a compatible isolated environment"
+    }
+  ],
+  "scope": "Six locally retained seed-101 deployment checkpoints, not every training seed or the teacher initialization. TensorRT engines are hardware/version specific and are not provided as portable weights."
+}

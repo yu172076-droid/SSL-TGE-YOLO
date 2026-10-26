@@ -1,0 +1,8 @@
+row,cell_1,cell_2
+1,Measure,Convention
+2,Detection,"Single-class COCO AP50 and AP50:95, using the 101-point recall grid and IoU 0.50:0.05:0.95; COCO maxDets 100."
+3,Tracking,"TrackEval CLEAR/Identity at IoU 0.5: MOTA, MOTP, IDF1, ID switches, FP, FN and fragments. MOTP is mean matched-box IoU. Combined scores use the official sequence combiners."
+4,Throughput,"Frames divided by wall time, from file open/decode through preprocessing, forward, NMS, CPU detections, prescribed logging and termination/flushing; full EOF on Jetson, 300-frame termination on Pi."
+5,Memory/forward,Sampled formal-window RSS and lifetime VmHWM have overlapping scopes and are not summed. CUDA forward timing excludes decoding and postprocessing.
+6,Jetson power,"Mean module VDD\_IN over the same timing window, including background activity; excludes wall-plug and isolated-GPU interpretations."
+7,Pi power,"Separately measured, uncalibrated PMIC output rails; VDD\_CORE load-minus-baseline increments are formed within run. Direct 5V/USB loads are outside this rail measurement."

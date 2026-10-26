@@ -1,0 +1,8 @@
+row,cell_1,cell_2,cell_3
+1,Aspect,Gong et al.,Present work
+2,Detector,YOLOv4 teacher; YOLOv4-tiny-CBAM student,YOLOv7 teacher; compact/wider Ghost--ECA students
+3,Training,Teacher/student: 3000/100 epochs; pseudo-label threshold 0.7,300 epochs per model; fixed threshold 0.5; one offline corpus
+4,Data and budgets,"Golden pompano; 4507 images: 80 labeled training, 3507 unlabeled and 920 test",Snapper/goldfish; 1188/149/149 internal split; 80/144 manual budgets; separate whole-date partition
+5,Controlled analysis,Detector/CBAM/self-training comparisons; repeated-seed and update controls not reported,Three seeds; capacity/budget and structure controls; compact80 update-schedule controls
+6,Tracking,SORT with MOTChallenge accuracy/identity metrics,Common-cache SORT/ByteTrack; TrackEval metrics and same-process cost measurements
+7,Deployment,V100 GPU throughput; edge power/memory not reported,"Jetson native/TensorRT and Pi CPU; throughput, memory and separately scoped power measurements"

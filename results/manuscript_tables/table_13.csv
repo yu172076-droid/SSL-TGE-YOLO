@@ -1,0 +1,4 @@
+row,cell_1,cell_2,cell_3,cell_4,cell_5
+1,Budget,\makecell{Val\\AP50},\makecell{Val\\AP50:95},\makecell{Internal\\test AP50},\makecell{Internal\\test AP50:95}
+2,80,89.37$\pm$0.67,60.49$\pm$1.58,87.61$\pm$1.93,55.89$\pm$2.98
+3,144,92.14$\pm$0.82,64.79$\pm$1.49,89.28$\pm$1.32,59.48$\pm$2.37

@@ -1,0 +1,42 @@
+{
+  "study_type": "hash-deduplicated_internal_controls",
+  "independent_generalization_test": false,
+  "sequence_independence_verified": false,
+  "split_seed": 42,
+  "label_sampling_seed": 42,
+  "training_seeds": [
+    101,
+    202,
+    303
+  ],
+  "budgets": [
+    80,
+    144
+  ],
+  "counts": {
+    "train": 1188,
+    "val": 149,
+    "test": 149
+  },
+  "initial_checkpoint_sha256": "d1ac3c74eb96a3eec77949c0f37a06bc272756606ff011d9353f7abff4e0c71d",
+  "initial_checkpoint_provenance": "User-provided trusted checkpoint; 80-class compatibility checked in preflight; official origin not independently certified",
+  "main_checkpoint_rule": "last.pt at fixed epoch 300; best.pt retained only as a secondary native-selector result",
+  "pseudo_confidence": 0.5,
+  "pseudo_nms_iou": 0.45,
+  "eval_confidence_floor": 0.001,
+  "eval_nms_iou": 0.65,
+  "eval_max_predictions": 300,
+  "coco_max_detections": [
+    1,
+    10,
+    100
+  ],
+  "image_size": 640,
+  "annotation_conflict_policy": "Exclude whole byte-identical group if sorted numeric boxes differ exactly; no tolerance or invented GT",
+  "release_scope": {
+    "source_media_location": "GitHub Release asset; see data/asset_manifest.json",
+    "manual_annotations_included": true,
+    "model_weights_location": "GitHub Release asset; see data/asset_manifest.json",
+    "date_holdout_split_membership_included": true
+  }
+}

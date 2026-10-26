@@ -1,0 +1,10 @@
+row,cell_1,cell_2,cell_3,cell_4,cell_5,cell_6,cell_7
+1,Manual images,Student,Training,\makecell{Val\\AP50},\makecell{Val\\AP50:95},\makecell{Internal test\\AP50},\makecell{Internal test\\AP50:95}
+2,80,Compact TGE,Manual only,51.07$\pm$3.27,23.58$\pm$1.87,59.06$\pm$0.15,27.05$\pm$1.11
+3,80,Compact TGE,Offline SSL,90.03$\pm$1.95,61.01$\pm$2.14,87.94$\pm$1.99,56.51$\pm$1.06
+4,80,Wider TGE,Manual only,55.98$\pm$7.38,26.04$\pm$3.83,62.63$\pm$2.39,29.38$\pm$1.91
+5,80,Wider TGE,Offline SSL,89.50$\pm$2.00,60.23$\pm$1.27,86.60$\pm$2.22,55.30$\pm$1.45
+6,144,Compact TGE,Manual only,74.37$\pm$2.39,41.77$\pm$2.67,78.82$\pm$1.17,44.40$\pm$1.55
+7,144,Compact TGE,Offline SSL,91.06$\pm$1.65,62.76$\pm$2.35,89.06$\pm$1.83,58.15$\pm$1.82
+8,144,Wider TGE,Manual only,80.79$\pm$1.45,46.44$\pm$1.90,83.18$\pm$1.86,47.30$\pm$1.04
+9,144,Wider TGE,Offline SSL,90.51$\pm$1.76,62.75$\pm$1.91,88.83$\pm$0.34,57.67$\pm$1.38

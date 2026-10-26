@@ -1,0 +1,9 @@
+row,cell_1,cell_2,cell_3,cell_4,cell_5,cell_6
+1,Model,Training,\makecell{Val\\AP50},\makecell{Val\\AP50:95},\makecell{Internal\\test AP50},\makecell{Internal\\test AP50:95}
+2,Full YOLOv7 teacher,Manual only,89.37$\pm$0.67,60.49$\pm$1.58,87.61$\pm$1.93,55.89$\pm$2.98
+3,Compact TGE,Manual only,51.07$\pm$3.27,23.58$\pm$1.87,59.06$\pm$0.15,27.05$\pm$1.11
+4,Compact TGE,Offline SSL,90.03$\pm$1.95,61.01$\pm$2.14,87.94$\pm$1.99,56.51$\pm$1.06
+5,Wider TGE,Manual only,55.98$\pm$7.38,26.04$\pm$3.83,62.63$\pm$2.39,29.38$\pm$1.91
+6,Wider TGE,Offline SSL,89.50$\pm$2.00,60.23$\pm$1.27,86.60$\pm$2.22,55.30$\pm$1.45
+7,YOLOv8n,Manual only,77.74$\pm$1.31,45.81$\pm$0.15,80.05$\pm$1.79,46.28$\pm$1.22
+8,YOLOv8n,Offline SSL,90.18$\pm$1.38,62.97$\pm$1.75,88.23$\pm$2.09,58.22$\pm$1.46

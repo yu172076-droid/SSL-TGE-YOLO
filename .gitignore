@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+*.log
+runs/
+wandb/
+working_dataset/
+*.pt
+*.onnx
+*.engine
+*.mp4
+*.jpg
+*.png
+*.zip

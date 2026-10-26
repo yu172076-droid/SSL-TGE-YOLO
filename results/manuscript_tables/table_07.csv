@@ -1,0 +1,8 @@
+row,cell_1,cell_2,cell_3,cell_4,cell_5,cell_6,cell_7,cell_8,cell_9
+1,Sequence,Tracker,MOTA(\%),MOTP(\%),IDF1(\%),IDSW,FP,FN,Frag
+2,R04,SORT,50.17,79.95,59.56,9,84,499,16
+3,R04,ByteTrack,50.42,76.40,54.14,13,90,486,13
+4,R02,SORT,37.49,78.59,53.54,6,65,696,12
+5,R02,ByteTrack,34.31,73.80,52.22,4,97,705,10
+6,Combined,SORT,43.73,79.36,56.66,15,149,1195,28
+7,Combined,ByteTrack,42.24,75.29,53.21,17,187,1191,23

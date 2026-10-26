@@ -1,0 +1,8 @@
+row,cell_1,cell_2,cell_3,cell_4,cell_5,cell_6
+1,Model,Backend,frames/s,Module W,J/frame,frames/s/W
+2,compact SSL,PyTorch FP16,16.229$\pm$0.133,8.322$\pm$0.027,0.51278$\pm$0.00362,1.9502$\pm$0.0138
+3,compact SSL,TRT FP16-enabled,25.007$\pm$0.028,8.105$\pm$0.008,0.32411$\pm$0.00008,3.0853$\pm$0.0007
+4,YOLOv8n manual-only,PyTorch FP16,21.810$\pm$0.052,8.076$\pm$0.022,0.37028$\pm$0.00110,2.7007$\pm$0.0080
+5,YOLOv8n manual-only,TRT FP16-enabled,25.918$\pm$1.066,7.516$\pm$0.127,0.29019$\pm$0.00702,3.4473$\pm$0.0835
+6,YOLOv8n SSL,PyTorch FP16,21.775$\pm$0.264,8.066$\pm$0.021,0.37048$\pm$0.00350,2.6994$\pm$0.0256
+7,YOLOv8n SSL,TRT FP16-enabled,25.600$\pm$1.300,7.482$\pm$0.150,0.29258$\pm$0.00873,3.4200$\pm$0.1038

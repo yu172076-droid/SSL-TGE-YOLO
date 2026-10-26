@@ -1,0 +1,6 @@
+row,cell_1,cell_2,cell_3,cell_4,cell_5
+1,,\multicolumn{2}{c}{Validation},\multicolumn{2}{c}{Test},,
+2,Training setting,AP50,AP50:95,AP50,AP50:95
+3,"Manual-only, same-epoch",46.36$\pm$2.56,19.36$\pm$0.64,59.90$\pm$13.71,19.28$\pm$4.60
+4,"Manual-only, repetition control",69.37$\pm$1.15,39.81$\pm$2.21,65.45$\pm$0.85,27.60$\pm$1.58
+5,Offline SSL,71.42$\pm$3.40,34.26$\pm$10.33,71.22$\pm$5.69,29.99$\pm$8.45

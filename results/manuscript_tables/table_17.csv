@@ -1,0 +1,6 @@
+row,cell_1,cell_2,cell_3,cell_4
+1,P4 module,\makecell{Unloaded baseline\\VDD\_CORE W},\makecell{Inference load\\VDD\_CORE W},\makecell{Within-run increment\\VDD\_CORE W}
+2,Identity,2.051$\pm$0.095,4.418$\pm$0.076,2.367$\pm$0.111
+3,CA,2.048$\pm$0.037,4.452$\pm$0.006,2.403$\pm$0.044
+4,CBAM,2.056$\pm$0.067,4.403$\pm$0.150,2.348$\pm$0.163
+5,ECA,2.035$\pm$0.131,4.493$\pm$0.114,2.458$\pm$0.202

@@ -1,0 +1,256 @@
+{
+  "schema": "hongyou_dayholdout_stepmatched_three_controls_v1",
+  "version_date": "2026-10-19",
+  "dataset_manifest_sha256": "ec8389e69b70865a0a539df64b9d1b8e568b752dd2e6ba6709ce0b0f9f68311c",
+  "label_budgets_sha256": "6c87b0bf17379336d5379aef04342dd4b194d94752e85c11a9d3153f6cc04089",
+  "source_attestation_sha256": "b3f56d87879d0b8475a2930fa6203b234d7c9fc6fbc03ebd2f330ee221cd9294",
+  "static_files": {
+    "manifest.json": "ec8389e69b70865a0a539df64b9d1b8e568b752dd2e6ba6709ce0b0f9f68311c",
+    "label_budgets.json": "6c87b0bf17379336d5379aef04342dd4b194d94752e85c11a9d3153f6cc04089",
+    "gt_val.json": "092a8075cbe174057620c00dbadfdcf8a162c0ef62404465d080797a1517753e",
+    "gt_test.json": "72e947cd031618db66c022299553cbfb08dda2e61a3375fad3a421e2b570b0ab",
+    "source_attestation.json": "b3f56d87879d0b8475a2930fa6203b234d7c9fc6fbc03ebd2f330ee221cd9294"
+  },
+  "source_initial_checkpoint_sha256": "d1ac3c74eb96a3eec77949c0f37a06bc272756606ff011d9353f7abff4e0c71d",
+  "initial_provenance": "User-provided trusted checkpoint; 80-class compatibility checked in preflight; official origin not independently certified",
+  "runtime_versions": {
+    "torch": "2.4.1",
+    "torchvision": "0.19.1",
+    "numpy": "1.23.5",
+    "opencv-python": "4.13.0.92",
+    "PyYAML": "6.0.3",
+    "pycocotools": "2.0.2"
+  },
+  "mapping": {
+    "101": "0",
+    "202": "2",
+    "303": "3"
+  },
+  "studies": {
+    "101": "<machine-specific path>",
+    "202": "<machine-specific path>",
+    "303": "<machine-specific path>"
+  },
+  "gpu_lock_directory": "<machine-specific path>",
+  "formal_training_jobs": 3,
+  "formal_epochs": 300,
+  "budget": 80,
+  "counts": {
+    "train": 216,
+    "val": 146,
+    "test": 74,
+    "manual": 80,
+    "unlabeled": 136
+  },
+  "gt_counts": {
+    "val": {
+      "images": 146,
+      "boxes": 207
+    },
+    "test": {
+      "images": 74,
+      "boxes": 182
+    }
+  },
+  "pseudo_threshold": 0.5,
+  "pseudo_nms_iou": 0.45,
+  "empty_pseudo_images": "excluded",
+  "common_evaluation": {
+    "imgsz": 640,
+    "precision": "FP32",
+    "confidence_floor": 0.001,
+    "nms_iou": 0.65,
+    "max_det": 300,
+    "coco_maxDets": [
+      1,
+      10,
+      100
+    ],
+    "checkpoint": "last.pt"
+  },
+  "comparison_scope": "New manual-only repetition to exactly match accepted date-held-out SSL sample count, update positions and learning rates",
+  "training_authorization": "User explicitly requested arranging further server training on 2026-10-19",
+  "no_retry_or_epoch_resume": true,
+  "old_63_studies_immutable": true,
+  "date_group_disjoint": true,
+  "full_source_video_sequence_identity_verified": false,
+  "statistical_scope": "Three optimization seeds on one fixed date partition, not independent-scene replicates",
+  "inference_only_time_estimate_not_included_in_training_count": true,
+  "training_smoke_jobs": 0,
+  "execution_mode": "Direct formal, real CPU/data/source gates; one new manual-repetition control per seed",
+  "direct_formal_user_statement": "Previous authorization to omit training smoke persists; this package reuses the accepted native worker and real CPU gate",
+  "formal_queue": "Verify original accepted studies -> CPU gate -> repeated manual300 -> val/test -> compare actual optimizer trace -> audit/export",
+  "manual_mid_queue_release_required": false,
+  "approximate_training_wallclock": "Previous SSL runs took 85.2/106.3/110.7 minutes; reserve approximately 2-3 hours with three idle V100 GPUs, including verification/evaluation; not a guarantee.",
+  "source_studies": {
+    "101": "<machine-specific path>",
+    "202": "<machine-specific path>",
+    "303": "<machine-specific path>"
+  },
+  "references": {
+    "101": {
+      "export_manifest_sha256": "d8b580c69886ffa609a5116a472de972e52dba84c2c0001f2f2a3fd220d0b43c",
+      "source_study_sha256": "d69285023bbf68301f4210afb0f7c60cfae8a6c8df4a1f60f78b21cc67dfda24",
+      "source_formal_complete_sha256": "367c5acaaf35e07a11297f87c6f98e3cb658eb92d3c77ac097e2ee8194c3bd4e",
+      "source_SSL_job": "compact_b80_s101_ssl",
+      "SSL_samples": 136,
+      "measured_SSL_updates": 820,
+      "measured_SSL_trace_sha256": "7af1f852524a97f6016459271543afa429ba0a0e3932eefcb8d59482c9f31aec",
+      "SSL_checkpoint_sha256": "e85afe54074e88c3bc3fc7df2cccca8092c54ec7ecb83379116f8b2eca12880a",
+      "supervised_checkpoint_sha256": "10815df778b322ad4068dd5750044e677ac7cf8672aa5622b8865d18fa5145b9",
+      "reference_files": {
+        "source_export_manifest.json": {
+          "path": "export_manifest.json",
+          "sha256": "d8b580c69886ffa609a5116a472de972e52dba84c2c0001f2f2a3fd220d0b43c"
+        },
+        "source_study.json": {
+          "path": "study.json",
+          "sha256": "d69285023bbf68301f4210afb0f7c60cfae8a6c8df4a1f60f78b21cc67dfda24"
+        },
+        "source_formal_complete.json": {
+          "path": "formal_complete.json",
+          "sha256": "367c5acaaf35e07a11297f87c6f98e3cb658eb92d3c77ac097e2ee8194c3bd4e"
+        },
+        "source_formal_shell_exit.json": {
+          "path": "formal_shell_exit.json",
+          "sha256": "799dc5aae4a5325f7e9402ae347118c219f611b1b471abfbd7001ea263fc5437"
+        },
+        "ssl_completed.json": {
+          "path": "jobs/compact_b80_s101_ssl/completed.json",
+          "sha256": "9bb63c72185311f0812035b7e61ed56c033686ed5eae620ffd20963572f3f96d"
+        },
+        "ssl_optimizer_steps.jsonl": {
+          "path": "jobs/compact_b80_s101_ssl/attempt_01/optimizer_steps.jsonl",
+          "sha256": "7af1f852524a97f6016459271543afa429ba0a0e3932eefcb8d59482c9f31aec"
+        },
+        "ssl_optimizer_step_summary.json": {
+          "path": "jobs/compact_b80_s101_ssl/attempt_01/optimizer_step_summary.json",
+          "sha256": "a7ea2540796a8e2e3ad0bdb1835ee65d8167a997ffc97ca6dbc413f153398194"
+        },
+        "ssl_training_settings.json": {
+          "path": "jobs/compact_b80_s101_ssl/attempt_01/training_settings.json",
+          "sha256": "6a00e195dc759cc600287e18cb17cba1671bc846d3dde7ddaae7136903781bff"
+        },
+        "supervised_completed.json": {
+          "path": "jobs/compact_b80_s101_supervised/completed.json",
+          "sha256": "62ff46bfda59e451b2be662bd3111706b71b160faefb1016a22df46ecab1b9c2"
+        },
+        "source_pseudo_manifest.json": {
+          "path": "pseudo/teacher_b80_s101_pseudo/pseudo_manifest.json",
+          "sha256": "15cf57bd6fe534be7351a0c28d667c276655b30d97b34261cfcaf840f2bf46da"
+        }
+      }
+    },
+    "202": {
+      "export_manifest_sha256": "e79ec3b97f3a91a3fb55e1b618729a1124800e5fbbb6ef0ee77973f62f389fbd",
+      "source_study_sha256": "d69285023bbf68301f4210afb0f7c60cfae8a6c8df4a1f60f78b21cc67dfda24",
+      "source_formal_complete_sha256": "409e2606d91ca41b947bf0b59ecc504d3a678c49b0c6a03a2ddb58b6b7ab833d",
+      "source_SSL_job": "compact_b80_s202_ssl",
+      "SSL_samples": 167,
+      "measured_SSL_updates": 970,
+      "measured_SSL_trace_sha256": "d3f3acf7d2ce9321ba2f885a29d2eca7373c16306e37ae5b9a1a4497e43606ed",
+      "SSL_checkpoint_sha256": "f3d447cce1932005a28dabb7a9c4ef190d2959e29849ffd2eb3055eb1981e022",
+      "supervised_checkpoint_sha256": "f05d26f48fac5345403806403f33885853d761d57ae8061edbb6b8965b56ad21",
+      "reference_files": {
+        "source_export_manifest.json": {
+          "path": "export_manifest.json",
+          "sha256": "e79ec3b97f3a91a3fb55e1b618729a1124800e5fbbb6ef0ee77973f62f389fbd"
+        },
+        "source_study.json": {
+          "path": "study.json",
+          "sha256": "d69285023bbf68301f4210afb0f7c60cfae8a6c8df4a1f60f78b21cc67dfda24"
+        },
+        "source_formal_complete.json": {
+          "path": "formal_complete.json",
+          "sha256": "409e2606d91ca41b947bf0b59ecc504d3a678c49b0c6a03a2ddb58b6b7ab833d"
+        },
+        "source_formal_shell_exit.json": {
+          "path": "formal_shell_exit.json",
+          "sha256": "defc332c88cc9bf4cb2bae9b4dd36f5798309cefc49b52ecc103ec61f24b9d81"
+        },
+        "ssl_completed.json": {
+          "path": "jobs/compact_b80_s202_ssl/completed.json",
+          "sha256": "466c885957ccf7c173f60e2d2c42de39ae84d2bfcce800ffb04776333e97873f"
+        },
+        "ssl_optimizer_steps.jsonl": {
+          "path": "jobs/compact_b80_s202_ssl/attempt_01/optimizer_steps.jsonl",
+          "sha256": "d3f3acf7d2ce9321ba2f885a29d2eca7373c16306e37ae5b9a1a4497e43606ed"
+        },
+        "ssl_optimizer_step_summary.json": {
+          "path": "jobs/compact_b80_s202_ssl/attempt_01/optimizer_step_summary.json",
+          "sha256": "192ef720c3875a1455e0908be7eb7e7dfded44180ec1d8357c2775d2df67111a"
+        },
+        "ssl_training_settings.json": {
+          "path": "jobs/compact_b80_s202_ssl/attempt_01/training_settings.json",
+          "sha256": "f530270cbece356881eecfb44dded2428ab59f4a9de215dccf95ea6ab1504f97"
+        },
+        "supervised_completed.json": {
+          "path": "jobs/compact_b80_s202_supervised/completed.json",
+          "sha256": "49edb320df42e13f4c1f9b4851ec5eabab7a044a644acf34b67c8345037e5889"
+        },
+        "source_pseudo_manifest.json": {
+          "path": "pseudo/teacher_b80_s202_pseudo/pseudo_manifest.json",
+          "sha256": "cd2f8e20bec9bd25dc29dbe99228f67a89b4373b4957f32cdb40a54d35c858a2"
+        }
+      }
+    },
+    "303": {
+      "export_manifest_sha256": "d296006fba41d588ec1c6c3f7e14081c3fcf37d621f218c3bd3ae4fb7a069239",
+      "source_study_sha256": "d69285023bbf68301f4210afb0f7c60cfae8a6c8df4a1f60f78b21cc67dfda24",
+      "source_formal_complete_sha256": "3d6f4f23b209ae076ddf0985d7c312d4083980947564e2709948501329e03a76",
+      "source_SSL_job": "compact_b80_s303_ssl",
+      "SSL_samples": 169,
+      "measured_SSL_updates": 1007,
+      "measured_SSL_trace_sha256": "628c31a7a6895edf6efd7ea2a24edf3888cdef622517044d8b2a6e246d055e16",
+      "SSL_checkpoint_sha256": "bf7c1c1ff3298b4331789d0284464a370e28147ac0aa004ef3b938e9c8503fec",
+      "supervised_checkpoint_sha256": "36dbdfa1393876646c81f4771390f8af9c6c6154fa8d340a913648834956de0c",
+      "reference_files": {
+        "source_export_manifest.json": {
+          "path": "export_manifest.json",
+          "sha256": "d296006fba41d588ec1c6c3f7e14081c3fcf37d621f218c3bd3ae4fb7a069239"
+        },
+        "source_study.json": {
+          "path": "study.json",
+          "sha256": "d69285023bbf68301f4210afb0f7c60cfae8a6c8df4a1f60f78b21cc67dfda24"
+        },
+        "source_formal_complete.json": {
+          "path": "formal_complete.json",
+          "sha256": "3d6f4f23b209ae076ddf0985d7c312d4083980947564e2709948501329e03a76"
+        },
+        "source_formal_shell_exit.json": {
+          "path": "formal_shell_exit.json",
+          "sha256": "858e843bbda783605fa53d35bf95504e1667acf4b56eebba1d6461c01b98ab55"
+        },
+        "ssl_completed.json": {
+          "path": "jobs/compact_b80_s303_ssl/completed.json",
+          "sha256": "2d0cf27ddbd1d64594fdc9dadddaab09e99d91c5662a0fc2b13f6daaad55457a"
+        },
+        "ssl_optimizer_steps.jsonl": {
+          "path": "jobs/compact_b80_s303_ssl/attempt_01/optimizer_steps.jsonl",
+          "sha256": "628c31a7a6895edf6efd7ea2a24edf3888cdef622517044d8b2a6e246d055e16"
+        },
+        "ssl_optimizer_step_summary.json": {
+          "path": "jobs/compact_b80_s303_ssl/attempt_01/optimizer_step_summary.json",
+          "sha256": "c08e6af386df126cf8bb8af0b1a246bbb53ff5406b76e95e8ffbf165130900f6"
+        },
+        "ssl_training_settings.json": {
+          "path": "jobs/compact_b80_s303_ssl/attempt_01/training_settings.json",
+          "sha256": "f283795103c93c17343b17aeabe3f22d0c085f84aac55526db8015998da7d745"
+        },
+        "supervised_completed.json": {
+          "path": "jobs/compact_b80_s303_supervised/completed.json",
+          "sha256": "5571a1a9be9d2ecf7e5e1db677b39d3e2a2dc77dac25b360322d0caacb4f14a5"
+        },
+        "source_pseudo_manifest.json": {
+          "path": "pseudo/teacher_b80_s303_pseudo/pseudo_manifest.json",
+          "sha256": "a09cea47e7b1ff38c057b15b889f2dc1523a1ad2311ffa70c95a616d9b0a438f"
+        }
+      }
+    }
+  },
+  "no_teacher_or_SSL_retraining": true,
+  "manual_unique_images": 80,
+  "repetition_policy": "Cycle the fixed sorted 80 manual IDs and truncate to the accepted per-seed SSL image count",
+  "prior_accepted_trainings": 72,
+  "planned_accepted_trainings_after_completion": 75
+}
