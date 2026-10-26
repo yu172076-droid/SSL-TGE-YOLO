@@ -44,8 +44,8 @@
     },
     {
       "path": "data/asset_manifest.json",
-      "bytes": 1289,
-      "sha256": "1d6a0bebbffdcf2898e81768abda086dc9de4d820e1e365c162ecfb00e755990"
+      "bytes": 1960,
+      "sha256": "b35767c18c3ad1392ea409554dfc77d3350e7e31274eafdc2076535e14d04fb8"
     },
     {
       "path": "data/date_holdout/gt_test.json",
@@ -859,8 +859,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 5085,
-      "sha256": "6b7264f6fc162b5a577ad8dbeaff8bc2a96f7d97ae1d7bf8b8fdada2f1b05d2a"
+      "bytes": 5307,
+      "sha256": "f3af36e4041062bd70fe425c5caaaeca9f1bff1c1dea2404e1db345bb248d4df"
     },
     {
       "path": "results/internal_initial_return/summary_individual.json",

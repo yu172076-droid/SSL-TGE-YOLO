@@ -7,33 +7,40 @@
       "bytes": 345074458,
       "sha256": "af49aa8f75990da5848ef370f2ffec643092719d5cd5a43684cfbea34a3011b1",
       "entries": 2974,
-      "status": "prepared_locally_not_uploaded",
-      "download_url": null
+      "status": "published_verified",
+      "download_url": "https://github.com/yu172076-droid/SSL-TGE-YOLO/releases/download/v0.1.0/detection_dataset_1486.zip",
+      "github_asset_id": 678626494
     },
     {
       "name": "tracking_R04_R02.zip",
       "bytes": 108058693,
       "sha256": "6e127d15fbef3fe6ef2312e9a08f684f5af047fccc3dde5664aee5f9ffc0fe14",
       "entries": 8,
-      "status": "prepared_locally_not_uploaded",
-      "download_url": null
+      "status": "published_verified",
+      "download_url": "https://github.com/yu172076-droid/SSL-TGE-YOLO/releases/download/v0.1.0/tracking_R04_R02.zip",
+      "github_asset_id": 678624330
     },
     {
       "name": "deployment_checkpoints_6.zip",
       "bytes": 48274041,
       "sha256": "f7e26a0d5671d0ca4e973d7841f4f4a1f2fbaeff4bde7ecf6236424f67f70c6b",
       "entries": 11,
-      "status": "prepared_locally_not_uploaded",
-      "download_url": null
+      "status": "published_verified",
+      "download_url": "https://github.com/yu172076-droid/SSL-TGE-YOLO/releases/download/v0.1.0/deployment_checkpoints_6.zip",
+      "github_asset_id": 678625804
     },
     {
       "name": "manuscript_figures_9.zip",
       "bytes": 6590315,
       "sha256": "a4d22e27f2e895ab6f79d8298eddb8ad7bc46947a035807111bbdf5e46cb61e4",
       "entries": 12,
-      "status": "prepared_locally_not_uploaded",
-      "download_url": null
+      "status": "published_verified",
+      "download_url": "https://github.com/yu172076-droid/SSL-TGE-YOLO/releases/download/v0.1.0/manuscript_figures_9.zip",
+      "github_asset_id": 678624170
     }
   ],
-  "status": "Attachments prepared locally; null download URLs mean not yet published."
+  "status": "Published; GitHub-reported sizes and SHA256 digests verified against local files.",
+  "release_url": "https://github.com/yu172076-droid/SSL-TGE-YOLO/releases/tag/v0.1.0",
+  "release_id": 424441169,
+  "source_commit": "fedc2590847fd0c70f6404a2a8a42f06b9d5fcc3"
 }

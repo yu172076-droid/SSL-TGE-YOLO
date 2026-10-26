@@ -19,7 +19,7 @@ SSL-TGE-YOLO uses an offline server-side teacher to generate frozen pseudo label
 | `models/artifacts.json` | Six locally retained final seed-101 deployment checkpoints and their hashes |
 | `manifests/` | File integrity and source provenance |
 
-Images, videos, checkpoint binaries and figure assets are packaged as separate GitHub Release attachments. **Check `data/asset_manifest.json`: an attachment with a null download URL has been prepared but is not yet published.** Do not assume that the existence of this repository means every binary attachment is already available.
+Images, videos, checkpoint binaries and figure assets are available as [v0.1.0 Release attachments](https://github.com/yu172076-droid/SSL-TGE-YOLO/releases/tag/v0.1.0). All five uploaded files have GitHub-reported sizes and SHA256 digests matching the local release files. Direct archive URLs and hashes are recorded in `data/asset_manifest.json`; verify downloads against `SHA256SUMS.txt`. This release provides the artifacts listed below; the reproducibility notes specify what is unavailable.
 
 ## Verify this checkout
 
